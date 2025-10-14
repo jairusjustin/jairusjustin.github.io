@@ -1,449 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Jairus Justin Cubilla — Portfolio</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jairus Justin Cubilla — Portfolio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
 
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      /* ==========================
-         Theme variables (light/dark)
-         ========================== */
-      :root {
-        --bg: #ffffff;
-        --panel: #ffffff;
-        --muted: #6b7280;
-        --text: #0f1720;
-        --accent: #111827;
-        --soft: #eef2f7;
-        --glass: rgba(17, 24, 39, 0.04);
-        --shadow: 0 6px 20px rgba(15, 23, 32, 0.06);
-        --radius: 12px;
-        --transition: 320ms cubic-bezier(0.2, 0.9, 0.3, 1);
-      }
-
-      [data-theme="dark"] {
-        --bg: #0b0f12;
-        --panel: #0f1720;
-        --muted: #9aa3ad;
-        --text: #e6eef6;
-        --accent: #f5f7fa;
-        --soft: #091018;
-        --glass: rgba(255, 255, 255, 0.03);
-        --shadow: 0 10px 30px rgba(2, 6, 12, 0.6);
-      }
-
-      /* ==========================
-         Basic reset + layout
-         ========================== */
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        height: 100%;
-      }
-
-      body {
-        margin: 0;
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial;
-        background: var(--bg);
-        color: var(--text);
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        line-height: 1.45;
-        transition: background var(--transition), color var(--transition);
-        -webkit-transition: background var(--transition), color var(--transition);
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
-      }
-
-      /* ==========================
-         Container and grid
-         ========================== */
-      .container {
-        width: min(1100px, 94%);
-        margin: 0 auto;
-      }
-
-      /* ==========================
-         Header
-         ========================== */
-      header.normal-header {
-        position: sticky;
-        top: 0;
-        backdrop-filter: blur(6px);
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.6),
-          rgba(255, 255, 255, 0.4)
-        );
-        border-bottom: 1px solid rgba(17, 24, 39, 0.05);
-        z-index: 40;
-        transition: background var(--transition), border-color var(--transition);
-      }
-
-      [data-theme="dark"] header.normal-header {
-        background: linear-gradient(
-          180deg,
-          rgba(11, 15, 18, 0.72),
-          rgba(11, 15, 18, 0.55)
-        );
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      }
-
-      .nav-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-        padding: 18px 0;
-      }
-
-      .brand {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-      }
-
-      .logo-mark {
-        width: 44px;
-        height: 44px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Montserrat";
-        font-weight: 700;
-        background: var(--glass);
-        color: var(--accent);
-        box-shadow: var(--shadow);
-        transition: transform var(--transition);
-      }
-
-      .brand .name {
-        font-weight: 600;
-        font-size: 15px;
-        letter-spacing: 0.2px;
-        color: var(--text);
-      }
-
-      .brand .role {
-        font-size: 12px;
-        color: var(--muted);
-        margin-top: -2px;
-      }
-
-      nav.main-nav {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-
-      nav.main-nav a {
-        position: relative;
-        font-size: 14px;
-        color: var(--muted);
-        padding: 6px 4px;
-        transition: color var(--transition);
-      }
-
-      nav.main-nav a:hover {
-        color: var(--text);
-      }
-
-      nav.main-nav a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -8px;
-        height: 2px;
-        width: 0%;
-        background: var(--accent);
-        transition: width var(--transition);
-        opacity: 0.9;
-      }
-
-      nav.main-nav a:hover::after,
-      nav.main-nav a.active::after {
-        width: 100%;
-      }
-
-      .controls {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .toggle-btn {
-        --size: 40px;
-        width: var(--size);
-        height: var(--size);
-        border-radius: 10px;
-        display: inline-grid;
-        place-items: center;
-        background: var(--glass);
-        box-shadow: var(--shadow);
-        border: none;
-        cursor: pointer;
-        transition: transform var(--transition), background var(--transition);
-      }
-
-      .toggle-btn:active {
-        transform: translateY(1px);
-      }
-
-      /* ==========================
-         Hero
-         ========================== */
-      .hero-photo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-      }
-
-      .hero-photo img {
-        width: 320px;
-        max-width: 100%;
-        height: auto;
-        border-radius: 20px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .hero-photo img:hover {
-        transform: scale(1.02);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-      }
-
-      .hero {
-        padding: clamp(56px, 8vw, 120px) 0;
-        display: grid;
-        gap: 28px;
-        align-items: center;
-        text-align: left;
-      }
-
-      .hero-inner {
-        display: flex;
-        gap: 48px;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .hero-left {
-        flex: 1;
-        min-width: 280px;
-      }
-
-      .hero-right {
-        width: 300px;
-        height: 400px;
-        border-radius: 16px;
-        background: linear-gradient(180deg, var(--soft), transparent);
-        box-shadow: var(--shadow);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-      }
-
-      .hero-right img {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        object-fit: contain;
-        object-position: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-      }
-
-      .hero-right img:hover {
-        transform: scale(1.02);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-      }
-    .eyebrow{ display:inline-block; padding:6px 10px; border-radius:999px; background:var(--glass); color:var(--muted); font-size:13px; margin-bottom:14px; }
-    h1.hero-title{
-      font-family: "Montserrat", "Inter";
-      font-size: clamp(28px, 4.5vw, 44px);
-      line-height:1.02;
-      margin:0 0 12px 0;
-      color:var(--text);
-      letter-spacing:-0.4px;
-    }
-    p.lead{
-      margin:0 0 20px 0;
-      color:var(--muted);
-      max-width:68ch;
-      font-size:16px;
-    }
-
-    .cta-row{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 16px;
-      border-radius:10px;
-      border:1px solid transparent;
-      font-weight:600;
-      font-size:14px;
-      cursor:pointer;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-    }
-    .btn-primary{
-      background:var(--text);
-      color:var(--panel);
-      box-shadow: 0 8px 28px rgba(17,24,39,0.12);
-    }
-    .btn-outline{
-      background:transparent;
-      color:var(--text);
-      border:1px solid rgba(15,23,32,0.06);
-    }
-    .btn:hover{ transform: translateY(-3px) }
-
-    /* ==========================
-       Sections (card-like rows)
-       ========================== */
-    section.card-section{
-      padding:64px 0;
-      border-top: 1px solid rgba(15,23,32,0.04);
-    }
-
-    .card{
-      background: linear-gradient(180deg, var(--panel), rgba(0,0,0,0));
-      border-radius: var(--radius);
-      padding:22px;
-      box-shadow: var(--shadow);
-    }
-
-    .two-col{
-      display:grid;
-      grid-template-columns: 1fr 320px;
-      gap:28px;
-      align-items:start;
-      align-content:start;
-    }
-
-    .chips{ display:flex; flex-wrap:wrap; gap:10px }
-    .chip{
-      padding:8px 12px;
-      border-radius:999px;
-      background:var(--glass);
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
-      box-shadow: 0 6px 18px rgba(2,6,12,0.03);
-    }
-
-    /* Projects grid */
-    .projects-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:20px;
-    }
-    .project{
-      border-radius:12px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
-      padding:0;
-      transition: transform var(--transition), box-shadow var(--transition);
-      border:1px solid rgba(15,23,32,0.04);
-    }
-    .project:hover{ transform: translateY(-8px); box-shadow: 0 18px 45px rgba(2,6,23,0.12) }
-    .project-thumb{ height:140px; background:linear-gradient(90deg,var(--soft),transparent); display:flex; align-items:center; justify-content:center; color:var(--muted); font-weight:700 }
-    .project-body{ padding:14px 16px }
-    .project-title{ font-weight:700; margin-bottom:8px; font-size:15px; color:var(--text) }
-    .project-desc{ color:var(--muted); font-size:14px; line-height:1.45 }
-
-    /* Timeline (experience) */
-    .timeline{
-      position:relative;
-      padding-left:20px;
-    }
-    .timeline::before{
-      content:"";
-      position:absolute;
-      left:6px;
-      top:0;
-      bottom:0;
-      width:2px;
-      background:var(--glass);
-      border-radius:2px;
-    }
-    .timeline-item{
-      position:relative;
-      padding:14px 16px;
-      margin-bottom:18px;
-      border-radius:10px;
-      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.01));
-    }
-    .timeline-item::before{
-      content:"";
-      position:absolute;
-      left:-8px;
-      top:20px;
-      width:14px;
-      height:14px;
-      border-radius:50%;
-      background:var(--panel);
-      box-shadow: 0 6px 18px rgba(2,6,23,0.06);
-      border: 2px solid var(--glass);
-    }
-    .timeline-item h4{ margin:0 0 6px 0; font-size:15px; font-weight:700; color:var(--text) }
-    .timeline-item p{ margin:0; color:var(--muted); font-size:14px }
-
-    /* Achievements */
-    .achievements li{ margin-bottom:10px; list-style:none; color:var(--muted); display:flex; gap:12px; align-items:flex-start }
-    .achievements svg{ flex:0 0 18px; margin-top:4px; color:var(--accent) }
-
-    /* Contact */
-    .contact-grid{ display:grid; grid-template-columns: 1fr 320px; gap:28px; align-items:start }
-    .contact-card{ padding:18px; border-radius:12px; background:var(--panel); box-shadow:var(--shadow) }
-
-    .contact-links a{ display:flex; gap:10px; align-items:center; color:var(--text); margin-bottom:10px; font-weight:600; }
-
-    /* Footer */
-    footer{
-      padding:36px 0;
-      color:var(--muted);
-      text-align:center;
-      border-top:1px solid rgba(15,23,32,0.04);
-      margin-top:40px;
-    }
-
-    /* Reveal on scroll utility */
-    .reveal{ opacity:0; transform:translateY(10px); transition: opacity 520ms cubic-bezier(.2,.9,.3,1), transform 520ms cubic-bezier(.2,.9,.3,1) }
-    .reveal.show{ opacity:1; transform:none }
-
-    /* Responsive */
-    @media (max-width:880px){
-      .two-col{ grid-template-columns: 1fr }
-      .contact-grid{ grid-template-columns: 1fr }
-      .hero-inner{ flex-direction:column; gap:18px }
-      .hero-right{ width:100%; height:220px; border-radius:10px }
-      nav.main-nav{ display:none } /* keep it simple for now */
-    }
-  </style>
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -464,8 +33,8 @@
         <nav class="main-nav" aria-label="Primary navigation">
           <a href="#home" class="active">Home</a>
           <a href="#about">About</a>
+          <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -485,9 +54,9 @@
       <section id="home" class="container hero">
         <div class="hero-inner reveal">
           <div class="hero-left">
-            <span class="eyebrow">Minimal · Modern · Thoughtful</span>
+            <span class="eyebrow">Connect · Create · Innovate</span>
             <h1 class="hero-title">Hi — I'm <span style="color:var(--accent)">Jairus Justin Cubilla</span></h1>
-            <p class="lead">I build clean, high-quality web experiences and data-driven tools. Minimal by design, purposeful by intent — I make products that are simple to use and pleasing to the eye.</p>
+            <p class="lead">IT graduate specializing in Business Analytics. I build responsive websites, manage databases, and develop intuitive interfaces using PHP, JavaScript, SQL, and modern web technologies.</p>
 
             <div class="cta-row" style="margin-top:18px">
               <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -495,143 +64,407 @@
             </div>
           </div>
 
-            <div class="hero-right">
-              <div class="hero-photo">
-                <img src="assets/cubilla1.jpg" alt="Jairus Justin Cubilla" />
-              </div>
+          <div class="hero-right">
+            <div class="hero-photo">
+              <img src="assets/images/cubilla1.jpg" alt="Jairus Justin Cubilla" />
             </div>
+          </div>
         </div>
       </section>
 
       <!-- ABOUT -->
       <section id="about" class="card-section container reveal">
-        <div class="card two-col">
+        <div class="card two-col" style="align-items:center">
           <div>
             <h3 style="margin:0 0 10px 0; font-size:20px; font-weight:700;">About</h3>
-            <p style="margin:0 0 14px; color:var(--muted)">Information Technology student (Business Analytics). I create web apps, dashboards, and systems with clean interfaces and sensible UX. I care about typography, spacing, and pixel-level polish.</p>
-            <p style="margin:0 0 18px; color:var(--muted)">Dean’s Lister. OJT at Phosclay Chemical Manufacturing — built an intern DTR system. Certifications: Google Data Analytics, PhilNITS, Certiport.</p>
+            <p style="margin:0 0 14px; color:var(--muted)">
+              I'm Jairus Justin Cubilla, an IT graduate with a passion for building clean, efficient, and user-friendly web experiences. I specialize in web development, data analytics, and intuitive interface design, turning complex problems into simple, functional solutions.
+            </p>
+            <p style="margin:0 0 18px; color:var(--muted)">
+              Graduated Cum Laude from Batangas State University with a degree in Information Technology, majoring in Business Analytics. I thrive in collaborative projects, enjoy learning new technologies, and am always looking for opportunities to create meaningful digital products that make an impact.
+            </p>
 
             <div class="chips" aria-hidden="true">
-              <span class="chip">Design Systems</span>
-              <span class="chip">Frontend Dev</span>
+              <span class="chip">Web Development</span>
               <span class="chip">Data Analytics</span>
-              <span class="chip">SQL & Backends</span>
+              <span class="chip">Database Management</span>
+              <span class="chip">UI/UX Design</span>
             </div>
           </div>
 
-          <aside style="display:flex; gap:12px; flex-direction:column; align-items:flex-end">
-            <div style="width:100%; display:flex; gap:12px; justify-content:flex-end">
-              <a class="btn btn-outline" href="assets/Jairus_CV.pdf" target="_blank">Download CV</a>
+          <aside style="width:300px; display:flex; flex-direction:column; align-items:center; gap:12px">
+            <div class="hero-photo" style="width:100%; max-width:220px; border-radius:16px; overflow:hidden; box-shadow:var(--shadow)">
+              <img src="assets/images/cubilla2.jpg" alt="Jairus Justin Cubilla - Graduation Photo" style="width:100%; height:auto; object-fit:cover"/>
             </div>
 
-            <div style="width:100%; display:flex; gap:12px; justify-content:flex-end; margin-top:8px">
-              <div class="card" style="padding:14px; width:100%; text-align:right">
-                <div style="font-weight:700">Dean's Lister</div>
-                <div style="color:var(--muted); font-size:13px; margin-top:6px">Consistent academic honors</div>
+            <a href="assets/documents/cubilla_cv.pdf" target="_blank" class="cv-link">
+              Download CV
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="card-section container reveal">
+        <h3 style="margin:0 0 16px 0; font-size:20px; font-weight:700">Skills & Technologies</h3>
+
+        <div class="skills-section">
+          <div class="skill-category reveal">
+            <h4>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Programming & Databases
+            </h4>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">PHP</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M10 20L15 10L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 16L8 4L14 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 4H16L14 8H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">JavaScript</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M2 2V22H22V2H2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 7H17V17H7V7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 17V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 17V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">HTML/CSS</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 13H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 17H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 9H9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">SQL</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">MySQL</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">Java</span>
               </div>
             </div>
-          </aside>
+          </div>
+
+          <div class="skill-category reveal">
+            <h4>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 7L12 3L4 7L12 11L20 7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 7V17L12 21L4 17V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 11V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 9L16 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Data Analytics & Visualization
+            </h4>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 13H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 17H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 9H9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">Power BI</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 18V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.07 4.93L16.95 7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.07 19.07L16.95 16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">Tableau</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M21 16V8.00002C20.9996 7.6493 20.9071 7.30483 20.7315 7.00119C20.556 6.69754 20.3037 6.44539 20 6.27002L13 2.27002C12.696 2.09449 12.3511 2.00208 12 2.00208C11.6489 2.00208 11.304 2.09449 11 2.27002L4 6.27002C3.69626 6.44539 3.44398 6.69754 3.26846 7.00119C3.09294 7.30483 3.00036 7.6493 3 8.00002V16C3.00036 16.3508 3.09294 16.6952 3.26846 16.9989C3.44398 17.3025 3.69626 17.5547 4 17.73L11 21.73C11.304 21.9056 11.6489 21.998 12 21.998C12.3511 21.998 12.696 21.9056 13 21.73L20 17.73C20.3037 17.5547 20.556 17.3025 20.7315 16.9989C20.9071 16.6952 20.9996 16.3508 21 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3.27002 6.96002L12 12L20.73 6.96002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22.08V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">Excel</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category reveal">
+            <h4>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 18V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.07 4.93L16.95 7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.07 19.07L16.95 16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Creative & Productivity Tools
+            </h4>
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 13H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 17H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 9H9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">Photoshop</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 18V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.07 4.93L16.95 7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.07 19.07L16.95 16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">Canva</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M21 16V8.00002C20.9996 7.6493 20.9071 7.30483 20.7315 7.00119C20.556 6.69754 20.3037 6.44539 20 6.27002L13 2.27002C12.696 2.09449 12.3511 2.00208 12 2.00208C11.6489 2.00208 11.304 2.09449 11 2.27002L4 6.27002C3.69626 6.44539 3.44398 6.69754 3.26846 7.00119C3.09294 7.30483 3.00036 7.6493 3 8.00002V16C3.00036 16.3508 3.09294 16.6952 3.26846 16.9989C3.44398 17.3025 3.69626 17.5547 4 17.73L11 21.73C11.304 21.9056 11.6489 21.998 12 21.998C12.3511 21.998 12.696 21.9056 13 21.73L20 17.73C20.3037 17.5547 20.556 17.3025 20.7315 16.9989C20.9071 16.6952 20.9996 16.3508 21 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3.27002 6.96002L12 12L20.73 6.96002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 22.08V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="skill-name">Figma</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- PROJECTS -->
       <section id="projects" class="card-section container reveal">
         <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px">
-          <h3 style="margin:0; font-size:20px; font-weight:700">Selected Projects</h3>
+          <h3 style="margin:0; font-size:20px; font-weight:700">Projects</h3>
           <div style="color:var(--muted); font-size:13px">Work → Code → Results</div>
         </div>
 
         <div class="projects-grid">
           <article class="project reveal">
-            <div class="project-thumb">SakaInsights</div>
+            <div class="project-thumb">
+              <img src="assets/projects/sakainsights/sakainsights.png" alt="SakaInsights Farm Management" loading="lazy">
+            </div>
             <div class="project-body">
               <div class="project-title">SakaInsights Farm Management</div>
-              <div class="project-desc">System for managing crops, inventories and forecasting using basic predictive analytics.</div>
+              <div class="project-desc">
+                System for managing crops, fields, harvests, and sales, featuring machine learning–based profit prediction. 
+              </div>
             </div>
           </article>
 
           <article class="project reveal">
-            <div class="project-thumb">Intern DTR</div>
+            <div class="project-thumb">
+              <img src="assets/projects/pcm/1.png" alt="Intern DTR System" loading="lazy">
+            </div>
             <div class="project-body">
               <div class="project-title">Intern DTR System</div>
-              <div class="project-desc">Centralized intern timesheet with auto-hours and penalties — built during OJT at PCM.</div>
+              <div class="project-desc">
+                Centralized intern timesheet with auto-hours and penalties — built during OJT at PCM.
+              </div>
             </div>
           </article>
 
           <article class="project reveal">
-            <div class="project-thumb">Personal Website</div>
+            <div class="project-thumb">
+              <img src="assets/projects/portfolio/1.png" alt="Personal Portfolio Website" loading="lazy">
+            </div>
             <div class="project-body">
               <div class="project-title">Portfolio & Site</div>
-              <div class="project-desc">This portfolio — minimal, responsive, and thoughtfully animated.</div>
+              <div class="project-desc">
+                This portfolio — minimal, responsive, and thoughtfully animated.
+              </div>
             </div>
           </article>
 
+          <article class="project reveal">
+            <div class="project-thumb hover-carousel">
+              <img src="assets/projects/photobooth/1.png" alt="Photobooth web app preview" class="active">
+              <img src="assets/projects/photobooth/2.png" alt="Photobooth web app preview 1">
+              <img src="assets/projects/photobooth/3.png" alt="Photobooth web app preview 2">
+              <img src="assets/projects/photobooth/4.png" alt="Photobooth web app preview 3">
+              <img src="assets/projects/photobooth/5.png" alt="Photobooth web app preview 4">
+            </div>
+            <div class="project-body">
+              <div class="project-title">Photobooth Web App</div>
+              <div class="project-desc">
+                A personal project that lets users create customizable photo layouts like Polaroids and photostrips, with options to download or share their shots.
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-thumb">
+              <img src="assets/projects/csh/1.png" alt="Clothing Store Ordering System" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-title">Clothing Store Ordering System</div>
+              <div class="project-desc">
+                Multi-user order management system with admin, secretary, field, and designer roles. Tracks order status from quotation to completion with client approval workflow.
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-thumb hover-carousel">
+              <img src="assets/projects/angeleyes/1.png" alt="Internet Plan Payment System" loading="lazy" class="active">
+              <img src="assets/projects/angeleyes/2.png" alt="Internet Plan Payment System" loading="lazy">
+            </div>
+            <div class="project-body">
+              <div class="project-title">Internet Plan Payment System</div>
+              <div class="project-desc">
+                Subscription-based payment system with PayMongo API integration. Handles recurring payments, plan management, and secure transaction processing.
+              </div>
+            </div>
+          </article>
         </div>
-      </section>
-
-      <!-- EXPERIENCE -->
-      <section id="experience" class="card-section container reveal">
-        <h3 style="margin:0 0 16px 0; font-size:20px; font-weight:700">Experience</h3>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <h4>OJT — Phosclay Chemical Manufacturing</h4>
-            <p>Built the Intern DTR system: automated time logging, OT calculation, and HR-ready reports.</p>
-          </div>
-
-          <div class="timeline-item">
-            <h4>Freelance / Client Work</h4>
-            <p>Delivered websites and small business systems (PHP / MySQL) for local clients.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ACHIEVEMENTS -->
-      <section id="achievements" class="card-section container reveal">
-        <h3 style="margin:0 0 12px 0; font-size:20px; font-weight:700">Achievements</h3>
-
-        <ul class="achievements" aria-hidden="true" style="margin-top:12px; padding-left:0">
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Dean’s Lister (multiple semesters)</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Google Data Analytics certification</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> PhilNITS / Certiport credentials</li>
-        </ul>
       </section>
 
       <!-- CONTACT -->
       <section id="contact" class="card-section container reveal" aria-label="Contact section">
-        <div style="display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start">
-          <div style="flex:1; min-width:300px">
+        <div class="contact-container">
+          <div class="contact-form-section">
             <h3 style="margin:0 0 10px 0; font-size:20px; font-weight:700">Let's connect</h3>
-            <p style="margin:0 0 18px; color:var(--muted)">If you'd like to collaborate or hire me, send a message — I reply to meaningful projects only.</p>
-
-            <div class="contact-card contact-card" style="display:grid; gap:10px; max-width:480px">
-              <a class="contact-links" href="mailto:jairusjustin.cubilla@gmail.com" aria-label="Email">
-                <strong>Email</strong><span style="color:var(--muted); margin-left:auto">cubillajairusjustin@gmail.com</span>
-              </a>
-
-              <a class="contact-links" href="https://github.com/jairusjustin" target="_blank" rel="noopener noreferrer">
-                <strong>GitHub</strong><span style="color:var(--muted); margin-left:auto">github.com/jairusjustin</span>
-              </a>
-
-              <a class="contact-links" href="https://www.linkedin.com/in/jairus-justin-cubilla-a006862a2/" target="_blank" rel="noopener noreferrer">
-                <strong>LinkedIn</strong><span style="color:var(--muted); margin-left:auto">linkedin.com/in/jairus-justin-cubilla</span>
-              </a>
-            </div>
+            <p style="margin:0 0 18px; color:var(--muted)">Have something you'd like to discuss? Send me a message — I'll get back to you as soon as I can.</p>
+            
+            <form class="contact-form" id="contactForm" action="send_email.php" method="POST">
+              <div class="form-row">
+                <div class="form-group floating-input">
+                  <input type="text" id="name" name="name" required placeholder=" ">
+                  <label for="name">Name</label>
+                  <div class="focus-border"></div>
+                </div>
+                
+                <div class="form-group floating-input">
+                  <input type="email" id="email" name="email" required placeholder=" ">
+                  <label for="email">Email</label>
+                  <div class="focus-border"></div>
+                </div>
+              </div>
+              
+              <div class="form-group floating-input">
+                <input type="text" id="subject" name="subject" required placeholder=" ">
+                <label for="subject">Subject</label>
+                <div class="focus-border"></div>
+              </div>
+              
+              <div class="form-group floating-input">
+                <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                <label for="message">Message</label>
+                <div class="focus-border"></div>
+              </div>
+              
+              <button type="submit" class="btn btn-primary submit-btn">
+                <span>Send Message</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </form>
           </div>
-
-          <aside style="width:320px">
+          
+          <aside class="contact-sidebar">
             <div class="card" style="padding:20px">
-              <div style="font-weight:700; margin-bottom:8px">Availability</div>
-              <div style="color:var(--muted); font-size:14px">Open to freelance projects, internships, and collaborations.</div>
+              <div style="font-weight:700; margin-bottom:8px">Get in touch</div>
+              <div style="color:var(--muted); font-size:14px; margin-bottom:16px">For inquiries or opportunities, reach out directly through the form below.</div>
+              
+              <div class="social-icons">
+                <a href="mailto:cubillajairusjustin@gmail.com" class="social-icon" aria-label="Email" title="Email">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                
+                <a href="https://github.com/jairusjustin" target="_blank" class="social-icon" aria-label="GitHub" title="GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/jairusjustin-cubilla/" target="_blank" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+              
               <div style="margin-top:14px; display:flex; gap:10px">
-                <a class="btn btn-primary" href="mailto:jairusjustin.cubilla@gmail.com">Email Me</a>
-                <a class="btn btn-outline" href="#projects">See Work</a>
+                <a class="btn btn-outline" href="#projects">See My Work</a>
               </div>
             </div>
           </aside>
         </div>
       </section>
-
     </main>
 
     <!-- FOOTER -->
@@ -644,70 +477,9 @@
         </div>
       </div>
     </footer>
-
   </div>
 
-  <!-- ==========================
-       JavaScript: theme + reveals
-       ========================== -->
-  <script>
-    (function(){
-      const root = document.getElementById('page');
-      const toggle = document.getElementById('themeToggle');
-      const icon = document.getElementById('themeIcon');
-
-      // load saved theme
-      const saved = localStorage.getItem('jj_theme') || 'light';
-      root.setAttribute('data-theme', saved);
-      updateToggle(saved);
-
-      toggle.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('jj_theme', next);
-        updateToggle(next);
-      });
-
-      function updateToggle(theme){
-        // accessibility
-        toggle.setAttribute('aria-pressed', theme === 'dark');
-        // swap simple icon: sun for light, moon for dark
-        if(theme === 'dark'){
-          icon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>';
-        } else {
-          icon.innerHTML = '<path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 7a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>';
-        }
-      }
-
-      // Reveal on scroll (IntersectionObserver)
-      const reveals = document.querySelectorAll('.reveal');
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(ent => {
-          if(ent.isIntersecting){
-            ent.target.classList.add('show');
-            // optionally unobserve to avoid repeated triggers
-            io.unobserve(ent.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      reveals.forEach(r => io.observe(r));
-
-      // simple active nav highlight while scrolling
-      const navLinks = document.querySelectorAll('nav.main-nav a');
-      const sections = Array.from(navLinks).map(l => document.querySelector(l.getAttribute('href')));
-      window.addEventListener('scroll', () => {
-        const y = window.scrollY + window.innerHeight/3;
-        for(let i=0;i<sections.length;i++){
-          const s = sections[i];
-          if(!s) continue;
-          if(y >= s.offsetTop && y < s.offsetTop + s.offsetHeight){
-            navLinks.forEach(n=>n.classList.remove('active'));
-            navLinks[i].classList.add('active');
-          }
-        }
-      });
-    })();
-  </script>
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 </body>
 </html>
