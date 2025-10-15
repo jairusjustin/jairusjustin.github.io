@@ -1,485 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jairus Justin Cubilla — Portfolio</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon.ico">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jairus Justin Cubilla — Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/2-no-bg.png">
+    <!-- Add to head section -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-  <!-- Theme attr will be toggled by JS -->
-  <div id="page" class="page" data-theme="light">
+    <!-- Theme attr will be toggled by JS -->
+    <div id="page" class="page" data-theme="light">
 
-    <!-- HEADER -->
-    <header class="normal-header" aria-label="Main header">
-      <div class="container nav-inner">
-        <div class="brand">
-          <div class="logo-mark" aria-hidden="true">JJ</div>
-          <div>
-            <div class="name">Jairus Justin</div>
-            <div class="role">IT · Business Analytics</div>
-          </div>
-        </div>
-
-        <nav class="main-nav" aria-label="Primary navigation">
-          <a href="#home" class="active">Home</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="controls">
-          <button class="toggle-btn" id="themeToggle" title="Toggle theme" aria-pressed="false" aria-label="Toggle color theme">
-            <!-- simple sun/moon icon (will be updated via JS with aria-hidden) -->
-            <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 7a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <main>
-      <section id="home" class="container hero">
-        <div class="hero-inner reveal">
-          <div class="hero-left">
-            <span class="eyebrow">Connect · Create · Innovate</span>
-            <h1 class="hero-title">Hi — I'm <span style="color:var(--accent)">Jairus Justin Cubilla</span></h1>
-            <p class="lead">IT graduate specializing in Business Analytics. I build responsive websites, manage databases, and develop intuitive interfaces using PHP, JavaScript, SQL, and modern web technologies.</p>
-
-            <div class="cta-row" style="margin-top:18px">
-              <a class="btn btn-primary" href="#projects">View Projects</a>
-              <a class="btn btn-outline" href="#contact">Let's talk</a>
-            </div>
-          </div>
-
-          <div class="hero-right">
-            <div class="hero-photo">
-              <img src="assets/images/cubilla1.jpg" alt="Jairus Justin Cubilla" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" class="card-section container reveal">
-        <div class="card two-col" style="align-items:center">
-          <div>
-            <h3 style="margin:0 0 10px 0; font-size:20px; font-weight:700;">About</h3>
-            <p style="margin:0 0 14px; color:var(--muted)">
-              I'm Jairus Justin Cubilla, an IT graduate with a passion for building clean, efficient, and user-friendly web experiences. I specialize in web development, data analytics, and intuitive interface design, turning complex problems into simple, functional solutions.
-            </p>
-            <p style="margin:0 0 18px; color:var(--muted)">
-              Graduated Cum Laude from Batangas State University with a degree in Information Technology, majoring in Business Analytics. I thrive in collaborative projects, enjoy learning new technologies, and am always looking for opportunities to create meaningful digital products that make an impact.
-            </p>
-
-            <div class="chips" aria-hidden="true">
-              <span class="chip">Web Development</span>
-              <span class="chip">Data Analytics</span>
-              <span class="chip">Database Management</span>
-              <span class="chip">UI/UX Design</span>
-            </div>
-          </div>
-
-          <aside style="width:300px; display:flex; flex-direction:column; align-items:center; gap:12px">
-            <div class="hero-photo" style="width:100%; max-width:220px; border-radius:16px; overflow:hidden; box-shadow:var(--shadow)">
-              <img src="assets/images/cubilla2.jpg" alt="Jairus Justin Cubilla - Graduation Photo" style="width:100%; height:auto; object-fit:cover"/>
-            </div>
-
-            <a href="assets/documents/cubilla_cv.pdf" target="_blank" class="cv-link">
-              Download CV
-            </a>
-          </aside>
-        </div>
-      </section>
-
-      <!-- SKILLS -->
-      <section id="skills" class="card-section container reveal">
-        <h3 style="margin:0 0 16px 0; font-size:20px; font-weight:700">Skills & Technologies</h3>
-
-        <div class="skills-section">
-          <div class="skill-category reveal">
-            <h4>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Programming & Databases
-            </h4>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+        <!-- HEADER -->
+        <header class="normal-header" aria-label="Main header">
+            <div class="container nav-inner">
+                <div class="brand">
+                    <div class="logo-mark" aria-hidden="true">JJ</div>
+                    <div>
+                        <div class="name">Jairus Justin</div>
+                        <div class="role">IT · Business Analytics</div>
+                    </div>
                 </div>
-                <span class="skill-name">PHP</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M10 20L15 10L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 16L8 4L14 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 4H16L14 8H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <span class="skill-name">JavaScript</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M2 2V22H22V2H2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7 7H17V17H7V7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M17 2V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7 17V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M17 17V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <span class="skill-name">HTML/CSS</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 13H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 17H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 9H9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <span class="skill-name">SQL</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <span class="skill-name">MySQL</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <span class="skill-name">Java</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="skill-category reveal">
-            <h4>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M20 7L12 3L4 7L12 11L20 7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M20 7V17L12 21L4 17V7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 11V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 9L16 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Data Analytics & Visualization
-            </h4>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 13H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 17H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 9H9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+                <nav class="main-nav" aria-label="Primary navigation">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+
+                <div class="controls">
+                    <button class="toggle-btn" id="themeToggle" title="Toggle theme" aria-pressed="false" aria-label="Toggle color theme">
+                        <!-- simple sun/moon icon (will be updated via JS with aria-hidden) -->
+                        <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 7a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
                 </div>
-                <span class="skill-name">Power BI</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 18V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M20 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M19.07 4.93L16.95 7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M19.07 19.07L16.95 16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <main>
+            <section id="home" class="container hero">
+                <div class="hero-inner reveal">
+                    <div class="hero-left">
+                        <span class="eyebrow">Connect · Create · Innovate</span>
+                        <h1 class="hero-title">Hi — I'm <span style="color:var(--accent)">Jairus Justin Cubilla</span></h1>
+                        <p class="lead">IT graduate specializing in Business Analytics. I build responsive websites, manage databases, and develop intuitive interfaces using PHP, JavaScript, SQL, and modern web technologies.</p>
+
+                        <div class="cta-row" style="margin-top:18px">
+                            <a class="btn btn-primary" href="#projects">View Projects</a>
+                            <a class="btn btn-outline" href="#contact">Let's talk</a>
+                        </div>
+                    </div>
+
+                    <div class="hero-right">
+                        <div class="hero-photo">
+                            <img src="assets/images/cubilla1.jpg" alt="Jairus Justin Cubilla" />
+                        </div>
+                    </div>
                 </div>
-                <span class="skill-name">Tableau</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M21 16V8.00002C20.9996 7.6493 20.9071 7.30483 20.7315 7.00119C20.556 6.69754 20.3037 6.44539 20 6.27002L13 2.27002C12.696 2.09449 12.3511 2.00208 12 2.00208C11.6489 2.00208 11.304 2.09449 11 2.27002L4 6.27002C3.69626 6.44539 3.44398 6.69754 3.26846 7.00119C3.09294 7.30483 3.00036 7.6493 3 8.00002V16C3.00036 16.3508 3.09294 16.6952 3.26846 16.9989C3.44398 17.3025 3.69626 17.5547 4 17.73L11 21.73C11.304 21.9056 11.6489 21.998 12 21.998C12.3511 21.998 12.696 21.9056 13 21.73L20 17.73C20.3037 17.5547 20.556 17.3025 20.7315 16.9989C20.9071 16.6952 20.9996 16.3508 21 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3.27002 6.96002L12 12L20.73 6.96002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 22.08V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+            </section>
+
+            <!-- ABOUT -->
+            <section id="about" class="card-section container reveal">
+                <div class="card two-col" style="align-items:center">
+                    <div>
+                        <h3 style="margin:0 0 10px 0; font-size:20px; font-weight:700;">About</h3>
+                        <p style="margin:0 0 14px; color:var(--muted)">
+                            I'm Jairus Justin Cubilla, an IT graduate with a passion for building clean, efficient, and user-friendly web experiences. I specialize in web development, data analytics, and intuitive interface design, turning complex problems into simple, functional solutions.
+                        </p>
+                        <p style="margin:0 0 18px; color:var(--muted)">
+                            Graduated Cum Laude from Batangas State University with a degree in Information Technology, majoring in Business Analytics. I thrive in collaborative projects, enjoy learning new technologies, and am always looking for opportunities to create meaningful digital products that make an impact.
+                        </p>
+
+                        <div class="chips" aria-hidden="true">
+                            <span class="chip">Web Development</span>
+                            <span class="chip">Data Analytics</span>
+                            <span class="chip">Database Management</span>
+                            <span class="chip">UI/UX Design</span>
+                        </div>
+                    </div>
+
+                    <aside style="width:300px; display:flex; flex-direction:column; align-items:center; gap:12px">
+                        <div class="hero-photo" style="width:100%; max-width:220px; border-radius:16px; overflow:hidden; box-shadow:var(--shadow)">
+                            <img src="assets/images/cubilla2.jpg" alt="Jairus Justin Cubilla - Graduation Photo" style="width:100%; height:auto; object-fit:cover"/>
+                        </div>
+
+                        <a href="assets/documents/cubilla_cv.pdf" target="_blank" class="cv-link">
+                            Download CV
+                        </a>
+                    </aside>
                 </div>
-                <span class="skill-name">Excel</span>
-              </div>
-            </div>
-          </div>
+            </section>
 
-          <div class="skill-category reveal">
-            <h4>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 18V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M20 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M19.07 4.93L16.95 7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M19.07 19.07L16.95 16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Creative & Productivity Tools
-            </h4>
-            <div class="skills-grid">
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 13H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M16 17H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 9H9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+            <!-- CERTIFICATIONS -->
+            <section id="certifications" class="card-section container reveal">
+                <div class="section-header">
+                    <h3>Certifications</h3>
+                    <div class="section-subtitle">Professional Accreditations</div>
                 </div>
-                <span class="skill-name">Photoshop</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 2V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 18V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M20 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 12H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M19.07 4.93L16.95 7.05" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7.05 16.95L4.93 19.07" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M19.07 19.07L16.95 16.95" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M7.05 7.05L4.93 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+
+                <div class="certifications-grid">
+                    <!-- Certification 1 -->
+                    <article class="certification-card">
+                        <div class="certification-visual">
+                            <div class="cert-logo">
+                                <img src="assets/certifications/google.svg" alt="Google">
+                            </div>
+                            <div class="cert-ornament"></div>
+                        </div>
+                        <div class="certification-content">
+                            <div class="cert-meta">
+                                <span class="cert-issuer">Google</span>
+                                <span class="cert-date">2023</span>
+                            </div>
+                            <h4 class="cert-title">Data Analytics Professional</h4>
+                            <p class="cert-desc">
+                                Data analysis, visualization, and business intelligence methodologies.
+                            </p>
+                            <a href="#" class="cert-link">
+                                <span>View credential</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Certification 2 -->
+                    <article class="certification-card">
+                        <div class="certification-visual">
+                            <div class="cert-logo">
+                                <img src="assets/certifications/microsoft.svg" alt="Microsoft">
+                            </div>
+                            <div class="cert-ornament"></div>
+                        </div>
+                        <div class="certification-content">
+                            <div class="cert-meta">
+                                <span class="cert-issuer">Microsoft</span>
+                                <span class="cert-date">2023</span>
+                            </div>
+                            <h4 class="cert-title">Azure Fundamentals</h4>
+                            <p class="cert-desc">
+                                Cloud services architecture and Azure platform fundamentals.
+                            </p>
+                            <a href="#" class="cert-link">
+                                <span>View credential</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Certification 3 -->
+                    <article class="certification-card">
+                        <div class="certification-visual">
+                            <div class="cert-logo">
+                                <img src="assets/certifications/ibm.svg" alt="IBM">
+                            </div>
+                            <div class="cert-ornament"></div>
+                        </div>
+                        <div class="certification-content">
+                            <div class="cert-meta">
+                                <span class="cert-issuer">IBM</span>
+                                <span class="cert-date">2023</span>
+                            </div>
+                            <h4 class="cert-title">Data Science Professional</h4>
+                            <p class="cert-desc">
+                                Machine learning, data analysis, and statistical modeling techniques.
+                            </p>
+                            <a href="#" class="cert-link">
+                                <span>View credential</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Certification 4 -->
+                    <article class="certification-card">
+                        <div class="certification-visual">
+                            <div class="cert-logo">
+                                <img src="assets/certifications/aws.svg" alt="AWS">
+                            </div>
+                            <div class="cert-ornament"></div>
+                        </div>
+                        <div class="certification-content">
+                            <div class="cert-meta">
+                                <span class="cert-issuer">Amazon Web Services</span>
+                                <span class="cert-date">2022</span>
+                            </div>
+                            <h4 class="cert-title">Cloud Practitioner</h4>
+                            <p class="cert-desc">
+                                AWS cloud infrastructure and service model understanding.
+                            </p>
+                            <a href="#" class="cert-link">
+                                <span>View credential</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
                 </div>
-                <span class="skill-name">Canva</span>
-              </div>
-              <div class="skill-item">
-                <div class="skill-icon">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M21 16V8.00002C20.9996 7.6493 20.9071 7.30483 20.7315 7.00119C20.556 6.69754 20.3037 6.44539 20 6.27002L13 2.27002C12.696 2.09449 12.3511 2.00208 12 2.00208C11.6489 2.00208 11.304 2.09449 11 2.27002L4 6.27002C3.69626 6.44539 3.44398 6.69754 3.26846 7.00119C3.09294 7.30483 3.00036 7.6493 3 8.00002V16C3.00036 16.3508 3.09294 16.6952 3.26846 16.9989C3.44398 17.3025 3.69626 17.5547 4 17.73L11 21.73C11.304 21.9056 11.6489 21.998 12 21.998C12.3511 21.998 12.696 21.9056 13 21.73L20 17.73C20.3037 17.5547 20.556 17.3025 20.7315 16.9989C20.9071 16.6952 20.9996 16.3508 21 16Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3.27002 6.96002L12 12L20.73 6.96002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 22.08V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
+            </section>
+
+            <!-- SKILLS & TECHNOLOGIES -->
+            <section id="skills" class="skills-section container reveal">
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px">
+                    <h3 style="margin:0; font-size:20px; font-weight:700">Skills & Technologies</h3>
                 </div>
-                <span class="skill-name">Figma</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- PROJECTS -->
-      <section id="projects" class="card-section container reveal">
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px">
-          <h3 style="margin:0; font-size:20px; font-weight:700">Projects</h3>
-          <div style="color:var(--muted); font-size:13px">Work → Code → Results</div>
-        </div>
+                <div class="skills-scroll-container">
+                    <div class="skills-scroll-track">
+                        <!-- Skills with online SVGs -->
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="24" height="24">
+                                    <path fill="#E34F26" d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">HTML5</span>
+                        </div>
 
-        <div class="projects-grid">
-          <article class="project reveal">
-            <div class="project-thumb">
-              <img src="assets/projects/sakainsights/sakainsights.png" alt="SakaInsights Farm Management" loading="lazy">
-            </div>
-            <div class="project-body">
-              <div class="project-title">SakaInsights Farm Management</div>
-              <div class="project-desc">
-                System for managing crops, fields, harvests, and sales, featuring machine learning–based profit prediction. 
-              </div>
-            </div>
-          </article>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="24" height="24">
+                                    <path fill="#1572B6" d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 80l-4.8 47.3L193 208.1l-97.5-27-6.8-47.8h211.4zm-17.2 145.1l-11.4 104.9-98.3 28.7-98.4-28.7-6.5-60.1h48.6l3.2 29.4 52.6 13.3 54.7-15.4 3.7-46.5H119.9l-12-114.1h236.2l-4.1 36.6z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">CSS3</span>
+                        </div>
 
-          <article class="project reveal">
-            <div class="project-thumb">
-              <img src="assets/projects/pcm/1.png" alt="Intern DTR System" loading="lazy">
-            </div>
-            <div class="project-body">
-              <div class="project-title">Intern DTR System</div>
-              <div class="project-desc">
-                Centralized intern timesheet with auto-hours and penalties — built during OJT at PCM.
-              </div>
-            </div>
-          </article>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24">
+                                    <path fill="#F7DF1E" d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
 
-          <article class="project reveal">
-            <div class="project-thumb">
-              <img src="assets/projects/portfolio/1.png" alt="Personal Portfolio Website" loading="lazy">
-            </div>
-            <div class="project-body">
-              <div class="project-title">Portfolio & Site</div>
-              <div class="project-desc">
-                This portfolio — minimal, responsive, and thoughtfully animated.
-              </div>
-            </div>
-          </article>
+                        <!-- PHP with correct SVG -->
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="24" height="24">
+                                    <path fill="#777BB4" d="M320 104.5c171.4 0 303.2 72.2 303.2 151.5S491.3 407.5 320 407.5c-171.4 0-303.2-72.2-303.2-151.5S148.7 104.5 320 104.5m0-16.8C143.3 87.7 0 163 0 256s143.3 168.3 320 168.3S640 349 640 256 496.7 87.7 320 87.7zM218.2 242.5c-7.9 40.5-35.8 36.3-70.1 36.3l13.7-70.6c38 0 63.8-4.1 56.4 34.3zM97.4 350.3h36.7l8.7-44.8c41.1 0 66.6 3 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7L97.4 350.3zm185.7-213.6h36.5l-8.7 44.8c31.5 0 60.7-2.3 74.8 10.7 14.8 13.6 7.7 31-8.3 113.1h-37c15.4-79.4 18.3-86 12.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8 96.6h-36.5l32.7-168.6zM505 242.5c-8 41.1-36.7 36.3-70.1 36.3l13.7-70.6c38.2 0 63.8-4.1 56.4 34.3zM384.2 350.3H421l8.7-44.8c43.2 0 67.1 2.5 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417l-32.8 168.7z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">PHP</span>
+                        </div>
 
-          <article class="project reveal">
-            <div class="project-thumb hover-carousel">
-              <img src="assets/projects/photobooth/1.png" alt="Photobooth web app preview" class="active">
-              <img src="assets/projects/photobooth/2.png" alt="Photobooth web app preview 1">
-              <img src="assets/projects/photobooth/3.png" alt="Photobooth web app preview 2">
-              <img src="assets/projects/photobooth/4.png" alt="Photobooth web app preview 3">
-              <img src="assets/projects/photobooth/5.png" alt="Photobooth web app preview 4">
-            </div>
-            <div class="project-body">
-              <div class="project-title">Photobooth Web App</div>
-              <div class="project-desc">
-                A personal project that lets users create customizable photo layouts like Polaroids and photostrips, with options to download or share their shots.
-              </div>
-            </div>
-          </article>
+                        <!-- Python -->
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24">
+                                    <path fill="#3776AB" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Python</span>
+                        </div>
 
-          <article class="project reveal">
-            <div class="project-thumb">
-              <img src="assets/projects/csh/1.png" alt="Clothing Store Ordering System" loading="lazy">
-            </div>
-            <div class="project-body">
-              <div class="project-title">Clothing Store Ordering System</div>
-              <div class="project-desc">
-                Multi-user order management system with admin, secretary, field, and designer roles. Tracks order status from quotation to completion with client approval workflow.
-              </div>
-            </div>
-          </article>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 73" width="24" height="24">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <g transform="translate(2.000000, 2.000000)" fill="#FFFFFF" fill-rule="nonzero" stroke="#013247" stroke-width="2">
+                                            <rect x="-1" y="-1" width="71" height="71" rx="14"></rect>
+                                        </g>
+                                        <g transform="translate(14.000000, 16.000000)" fill="#00618A">
+                                            <g transform="translate(0.786008, 0.109629)" fill-rule="nonzero">
+                                                <path d="M40.8827605,33.7385756 C38.4614916,33.672937 36.6119538,33.8980714 35.0307983,34.5648866 C34.5814496,34.7544412 33.8649454,34.7593487 33.7916387,35.3224916 C34.0385504,35.5813655 34.0768908,35.9678361 34.2731933,36.2862143 C34.6507689,36.8972059 35.2881387,37.7158487 35.8568025,38.1452605 C36.4782227,38.6142395 37.1186597,39.1160378 37.7848613,39.5221387 C38.9697311,40.2447773 40.2926261,40.6573193 41.4336345,41.3811849 C42.1059706,41.8078361 42.7740126,42.3452143 43.4300924,42.8267689 C43.7542983,43.0647857 43.9723782,43.435 44.3938151,43.5840672 C44.3938151,43.5613697 44.3938151,43.5383655 44.3938151,43.5153613 C44.1723613,43.2334832 44.1153109,42.8457857 43.9119538,42.5513319 C43.6138193,42.2531975 43.3153782,41.9547563 43.016937,41.6563151 C42.1418571,40.4947563 41.0309076,39.4745966 39.8500252,38.6271218 C38.9083866,37.951105 36.8005882,37.0379916 36.4076765,35.9420714 C36.3846723,35.9190672 36.3619748,35.896063 36.3386639,35.8730588 C37.0063992,35.7979118 37.7882353,35.5562143 38.4044412,35.3911975 C39.4396303,35.1136134 40.3647059,35.1853866 41.4336345,34.9093361 C41.9154958,34.7716176 42.3973571,34.6335924 42.8795252,34.4961807 C42.8795252,34.4041639 42.8795252,34.3127605 42.8795252,34.2207437 C42.3390798,33.6661891 41.9538361,32.9325084 41.3646218,32.4307101 C39.8230336,31.117937 38.1403529,29.8063908 36.4076765,28.7127403 C35.4467143,28.1061655 34.259084,27.7119962 33.2407647,27.1979903 C32.8981555,27.0251521 32.2963655,26.9352824 32.0700042,26.6471471 C31.5350798,25.9650878 31.2436933,25.1006513 30.8311513,24.3062702 C29.9668067,22.6420849 29.118105,20.8245076 28.3525252,19.0737345 C27.8301765,17.8797857 27.4891008,16.702308 26.8379286,15.631171 C23.7118109,10.4914803 20.3467563,7.38919496 15.1340042,4.33994202 C14.024895,3.69146891 12.6894244,3.43535546 11.2781933,3.10078235 C10.5212017,3.05495798 9.76359664,3.00882689 9.00629832,2.96300252 C8.54406723,2.7697979 8.06312605,2.20426261 7.62942017,1.93020588 C5.90257143,0.839294496 1.47318908,-1.53361345 0.194155462,1.58603235 C-0.613445378,3.55516134 1.40110924,5.47668697 2.12160084,6.47442521 C2.62738655,7.17442773 3.27487815,7.9592084 3.63619748,8.74638151 C3.87390756,9.2637 3.9150084,9.78249076 4.11836555,10.3300214 C4.61893697,11.6785277 5.05417647,13.1456437 5.70166807,14.3920113 C6.02894118,15.0225412 6.38964706,15.6869025 6.80341597,16.2509042 C7.05707563,16.5968874 7.49170168,16.7493286 7.56040756,17.2837008 C7.13528992,17.8785895 7.11105882,18.8020395 6.87212185,19.5556878 C5.79613866,22.9485008 6.20193277,27.1656311 7.76713866,29.6766471 C8.24746639,30.4474412 9.37865966,32.1006765 10.9340504,31.4666807 C12.2946723,30.9124328 11.9907101,29.1950924 12.3799412,27.6799437 C12.4679706,27.3363529 12.4139874,27.0838588 12.5863655,26.8538168 C12.5863655,26.8765756 12.5863655,26.8996412 12.5863655,26.9227067 C12.999521,27.7488336 13.4126765,28.5749298 13.8258319,29.4009034 C14.7429328,30.8780798 16.3707101,32.4218151 17.750042,33.4634454 C18.4653193,34.003584 19.0284622,34.9375546 19.9532311,35.253479 C19.9532311,35.2304748 19.9532311,35.2077773 19.9532311,35.1844664 C19.9299202,35.1844664 19.9072227,35.1844664 19.8842185,35.1844664 C19.7050924,34.905042 19.4247479,34.7894076 19.1959328,34.5648866 C18.657021,34.0367101 18.0579916,33.3800168 17.6123235,32.7748529 C16.3578277,31.0716218 15.2490252,29.2073613 14.2389874,27.2668803 C13.7565126,26.3404244 13.3372227,25.3181176 12.9305084,24.3751601 C12.7737731,24.0115403 12.7756134,23.4618933 12.4489538,23.2735042 C12.0035924,23.9645197 11.3475126,24.5231538 11.003063,25.3390668 C10.4521891,26.6432517 10.3810294,28.2337622 10.1770588,29.8830714 C10.0562101,29.9263193 10.1098866,29.8965672 10.0390336,29.9517773 C9.08021849,29.7205084 8.74313025,28.7333828 8.38702521,27.8866134 C7.48556723,25.7449529 7.31809664,22.2964084 8.11128151,19.8312475 C8.31647899,19.1935403 9.2440084,17.1845681 8.86857983,16.5953845 C8.68945378,16.0073971 8.09809244,15.6674256 7.76713866,15.2181382 C7.35766387,14.6627861 6.94880252,13.9316206 6.66539076,13.2903248 C5.92772269,11.6204345 5.58327311,9.74592941 4.80665126,8.05806513 C4.43551681,7.2511084 3.80765546,6.43458193 3.29205462,5.71721891 C2.7212437,4.92256176 2.08203361,4.33724286 1.6397395,3.37606597 C1.48239076,3.0345916 1.26860504,2.48791975 1.50202101,2.13687563 C1.5762479,1.89993235 1.68084034,1.8011063 1.91517647,1.72381218 C2.31452941,1.41589634 3.42670588,1.82625756 3.84262185,1.9990958 C4.94682353,2.45767689 5.86821849,2.89438866 6.80341597,3.5138458 C7.25245798,3.81158151 7.70640756,4.38726933 8.249,4.54664244 C8.45542437,4.54664244 8.66215546,4.54664244 8.86857983,4.54664244 C9.83782353,4.76947647 10.9236218,4.61583908 11.8290672,4.89078529 C13.4295462,5.37724748 14.8637815,6.13387101 16.1664328,6.95637857 C20.1348109,9.46199622 23.3793235,13.0288437 25.5987689,17.2837008 C25.9557941,17.9687353 26.1103824,18.6226374 26.4247731,19.3492941 C27.0593824,20.8146311 27.8587017,22.3224798 28.489937,23.7554269 C29.1199454,25.1851227 29.7340042,26.6279769 30.6244202,27.8177235 C31.0927857,28.4431311 32.900916,28.7786244 33.7226261,29.1257731 C34.2986513,29.3693109 35.242437,29.6229706 35.7880966,29.9517773 C36.8303403,30.5805588 37.8400714,31.3289622 38.8175966,32.0175546 C39.3062059,32.3616975 40.8079202,33.116542 40.8827605,33.7385756 Z"></path>
+                                            </g>
+                                            <g transform="translate(9.654588, 7.607551)">
+                                                <path d="M1.23946639,0.00929369748 C0.73460084,5.20417043e-18 0.37757563,0.0644117647 0,0.146797479 C0,0.169832353 0,0.192897899 0,0.215687395 C0.0230042017,0.215687395 0.0460084034,0.215687395 0.069012605,0.215687395 C0.309789916,0.710492437 0.734907563,1.02890126 1.03273529,1.45515378 C1.26216387,1.93710714 1.49159244,2.4190605 1.72132773,2.90070714 C1.74402521,2.87791765 1.76733613,2.85488277 1.79003361,2.83209328 C2.21637815,2.5316584 2.4117605,2.05093193 2.40961345,1.31737395 C2.23876891,1.13763445 2.21361765,0.912101261 2.06547059,0.697610084 C1.86855462,0.411867227 1.48760504,0.249518908 1.23946639,0.00929369748 Z"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="skill-name">MySQL</span>
+                        </div>
 
-          <article class="project reveal">
-            <div class="project-thumb hover-carousel">
-              <img src="assets/projects/angeleyes/1.png" alt="Internet Plan Payment System" loading="lazy" class="active">
-              <img src="assets/projects/angeleyes/2.png" alt="Internet Plan Payment System" loading="lazy">
-            </div>
-            <div class="project-body">
-              <div class="project-title">Internet Plan Payment System</div>
-              <div class="project-desc">
-                Subscription-based payment system with PayMongo API integration. Handles recurring payments, plan management, and secure transaction processing.
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24">
+                                    <path fill="#F05032" d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Git</span>
+                        </div>
 
-      <!-- CONTACT -->
-      <section id="contact" class="card-section container reveal" aria-label="Contact section">
-        <div class="contact-container">
-          <div class="contact-form-section">
-            <h3 style="margin:0 0 10px 0; font-size:20px; font-weight:700">Let's connect</h3>
-            <p style="margin:0 0 18px; color:var(--muted)">Have something you'd like to discuss? Send me a message — I'll get back to you as soon as I can.</p>
-            
-            <form class="contact-form" id="contactForm" action="send_email.php" method="POST">
-              <div class="form-row">
-                <div class="form-group floating-input">
-                  <input type="text" id="name" name="name" required placeholder=" ">
-                  <label for="name">Name</label>
-                  <div class="focus-border"></div>
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="#181717" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">GitHub</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24">
+                                    <path fill="#563D7C" d="M0,222.991225 C0,241.223474 14.7785318,256 33.0087747,256 L222.991225,256 C241.223474,256 256,241.221468 256,222.991225 L256,33.0087747 C256,14.7765263 241.221468,0 222.991225,0 L33.0087747,0 C14.7765263,0 0,14.7785318 0,33.0087747 L0,222.991225 Z"/>
+                                    <path fill="#FFFFFF" d="M106.157563,113.238095 L106.157563,76.9845938 L138.069328,76.9845938 C141.108559,76.9845938 144.039202,77.2378593 146.861345,77.7443978 C149.683488,78.2509362 152.179961,79.1554557 154.35084,80.4579832 C156.52172,81.7605107 158.258397,83.5695496 159.560924,85.8851541 C160.863452,88.2007585 161.514706,91.1675823 161.514706,94.7857143 C161.514706,101.298352 159.560944,106.001853 155.653361,108.896359 C151.745779,111.790864 146.752832,113.238095 140.67437,113.238095 L106.157563,113.238095 L106.157563,113.238095 Z M72.07493,50.5 L72.07493,205.5 L147.186975,205.5 C154.133788,205.5 160.899594,204.631661 167.484594,202.894958 C174.069594,201.158255 179.93088,198.480877 185.068627,194.862745 C190.206375,191.244613 194.294803,186.577293 197.334034,180.860644 C200.373264,175.143996 201.892857,168.37819 201.892857,160.563025 C201.892857,150.866431 199.541107,142.581033 194.837535,135.706583 C190.133963,128.832132 183.00635,124.020088 173.454482,121.270308 C180.401295,117.941627 185.647508,113.672295 189.193277,108.462185 C192.739047,103.252075 194.511905,96.7395349 194.511905,88.9243697 C194.511905,81.6881057 193.317939,75.6097352 190.929972,70.6890756 C188.542005,65.7684161 185.177193,61.8247114 180.835434,58.8578431 C176.493676,55.8909749 171.283644,53.756309 165.205182,52.4537815 C159.12672,51.151254 152.397096,50.5 145.016106,50.5 L72.07493,50.5 L72.07493,50.5 Z M106.157563,179.015406 L106.157563,136.466387 L143.279412,136.466387 C150.660401,136.466387 156.594049,138.166883 161.080532,141.567927 C165.567016,144.968971 167.810224,150.649353 167.810224,158.609244 C167.810224,162.661552 167.122789,165.990183 165.747899,168.595238 C164.373009,171.200293 162.527789,173.262597 160.212185,174.782213 C157.89658,176.301828 155.219203,177.387252 152.179972,178.038515 C149.140741,178.689779 145.956833,179.015406 142.628151,179.015406 L106.157563,179.015406 L106.157563,179.015406 Z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Bootstrap</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="#F24E1E" d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z"/>
+                                    <path fill="#FF7262" d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z"/>
+                                    <path fill="#A259FF" d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z"/>
+                                    <path fill="#1ABCFE" d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z"/>
+                                    <path fill="#0ACF83" d="M20 12c0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4 4 1.792 4 4z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Figma</span>
+                        </div>
+
+                        <!-- Duplicate set for seamless infinite loop -->
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="24" height="24">
+                                    <path fill="#E34F26" d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">HTML5</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="24" height="24">
+                                    <path fill="#1572B6" d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 80l-4.8 47.3L193 208.1l-97.5-27-6.8-47.8h211.4zm-17.2 145.1l-11.4 104.9-98.3 28.7-98.4-28.7-6.5-60.1h48.6l3.2 29.4 52.6 13.3 54.7-15.4 3.7-46.5H119.9l-12-114.1h236.2l-4.1 36.6z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">CSS3</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24">
+                                    <path fill="#F7DF1E" d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+
+                        <!-- PHP with correct SVG -->
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" width="24" height="24">
+                                    <path fill="#777BB4" d="M320 104.5c171.4 0 303.2 72.2 303.2 151.5S491.3 407.5 320 407.5c-171.4 0-303.2-72.2-303.2-151.5S148.7 104.5 320 104.5m0-16.8C143.3 87.7 0 163 0 256s143.3 168.3 320 168.3S640 349 640 256 496.7 87.7 320 87.7zM218.2 242.5c-7.9 40.5-35.8 36.3-70.1 36.3l13.7-70.6c38 0 63.8-4.1 56.4 34.3zM97.4 350.3h36.7l8.7-44.8c41.1 0 66.6 3 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7L97.4 350.3zm185.7-213.6h36.5l-8.7 44.8c31.5 0 60.7-2.3 74.8 10.7 14.8 13.6 7.7 31-8.3 113.1h-37c15.4-79.4 18.3-86 12.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8 96.6h-36.5l32.7-168.6zM505 242.5c-8 41.1-36.7 36.3-70.1 36.3l13.7-70.6c38.2 0 63.8-4.1 56.4 34.3zM384.2 350.3H421l8.7-44.8c43.2 0 67.1 2.5 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417l-32.8 168.7z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">PHP</span>
+                        </div>
+
+                        <!-- Python -->
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24">
+                                    <path fill="#3776AB" d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Python</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 73 73" width="24" height="24">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <g transform="translate(2.000000, 2.000000)" fill="#FFFFFF" fill-rule="nonzero" stroke="#013247" stroke-width="2">
+                                            <rect x="-1" y="-1" width="71" height="71" rx="14"></rect>
+                                        </g>
+                                        <g transform="translate(14.000000, 16.000000)" fill="#00618A">
+                                            <g transform="translate(0.786008, 0.109629)" fill-rule="nonzero">
+                                                <path d="M40.8827605,33.7385756 C38.4614916,33.672937 36.6119538,33.8980714 35.0307983,34.5648866 C34.5814496,34.7544412 33.8649454,34.7593487 33.7916387,35.3224916 C34.0385504,35.5813655 34.0768908,35.9678361 34.2731933,36.2862143 C34.6507689,36.8972059 35.2881387,37.7158487 35.8568025,38.1452605 C36.4782227,38.6142395 37.1186597,39.1160378 37.7848613,39.5221387 C38.9697311,40.2447773 40.2926261,40.6573193 41.4336345,41.3811849 C42.1059706,41.8078361 42.7740126,42.3452143 43.4300924,42.8267689 C43.7542983,43.0647857 43.9723782,43.435 44.3938151,43.5840672 C44.3938151,43.5613697 44.3938151,43.5383655 44.3938151,43.5153613 C44.1723613,43.2334832 44.1153109,42.8457857 43.9119538,42.5513319 C43.6138193,42.2531975 43.3153782,41.9547563 43.016937,41.6563151 C42.1418571,40.4947563 41.0309076,39.4745966 39.8500252,38.6271218 C38.9083866,37.951105 36.8005882,37.0379916 36.4076765,35.9420714 C36.3846723,35.9190672 36.3619748,35.896063 36.3386639,35.8730588 C37.0063992,35.7979118 37.7882353,35.5562143 38.4044412,35.3911975 C39.4396303,35.1136134 40.3647059,35.1853866 41.4336345,34.9093361 C41.9154958,34.7716176 42.3973571,34.6335924 42.8795252,34.4961807 C42.8795252,34.4041639 42.8795252,34.3127605 42.8795252,34.2207437 C42.3390798,33.6661891 41.9538361,32.9325084 41.3646218,32.4307101 C39.8230336,31.117937 38.1403529,29.8063908 36.4076765,28.7127403 C35.4467143,28.1061655 34.259084,27.7119962 33.2407647,27.1979903 C32.8981555,27.0251521 32.2963655,26.9352824 32.0700042,26.6471471 C31.5350798,25.9650878 31.2436933,25.1006513 30.8311513,24.3062702 C29.9668067,22.6420849 29.118105,20.8245076 28.3525252,19.0737345 C27.8301765,17.8797857 27.4891008,16.702308 26.8379286,15.631171 C23.7118109,10.4914803 20.3467563,7.38919496 15.1340042,4.33994202 C14.024895,3.69146891 12.6894244,3.43535546 11.2781933,3.10078235 C10.5212017,3.05495798 9.76359664,3.00882689 9.00629832,2.96300252 C8.54406723,2.7697979 8.06312605,2.20426261 7.62942017,1.93020588 C5.90257143,0.839294496 1.47318908,-1.53361345 0.194155462,1.58603235 C-0.613445378,3.55516134 1.40110924,5.47668697 2.12160084,6.47442521 C2.62738655,7.17442773 3.27487815,7.9592084 3.63619748,8.74638151 C3.87390756,9.2637 3.9150084,9.78249076 4.11836555,10.3300214 C4.61893697,11.6785277 5.05417647,13.1456437 5.70166807,14.3920113 C6.02894118,15.0225412 6.38964706,15.6869025 6.80341597,16.2509042 C7.05707563,16.5968874 7.49170168,16.7493286 7.56040756,17.2837008 C7.13528992,17.8785895 7.11105882,18.8020395 6.87212185,19.5556878 C5.79613866,22.9485008 6.20193277,27.1656311 7.76713866,29.6766471 C8.24746639,30.4474412 9.37865966,32.1006765 10.9340504,31.4666807 C12.2946723,30.9124328 11.9907101,29.1950924 12.3799412,27.6799437 C12.4679706,27.3363529 12.4139874,27.0838588 12.5863655,26.8538168 C12.5863655,26.8765756 12.5863655,26.8996412 12.5863655,26.9227067 C12.999521,27.7488336 13.4126765,28.5749298 13.8258319,29.4009034 C14.7429328,30.8780798 16.3707101,32.4218151 17.750042,33.4634454 C18.4653193,34.003584 19.0284622,34.9375546 19.9532311,35.253479 C19.9532311,35.2304748 19.9532311,35.2077773 19.9532311,35.1844664 C19.9299202,35.1844664 19.9072227,35.1844664 19.8842185,35.1844664 C19.7050924,34.905042 19.4247479,34.7894076 19.1959328,34.5648866 C18.657021,34.0367101 18.0579916,33.3800168 17.6123235,32.7748529 C16.3578277,31.0716218 15.2490252,29.2073613 14.2389874,27.2668803 C13.7565126,26.3404244 13.3372227,25.3181176 12.9305084,24.3751601 C12.7737731,24.0115403 12.7756134,23.4618933 12.4489538,23.2735042 C12.0035924,23.9645197 11.3475126,24.5231538 11.003063,25.3390668 C10.4521891,26.6432517 10.3810294,28.2337622 10.1770588,29.8830714 C10.0562101,29.9263193 10.1098866,29.8965672 10.0390336,29.9517773 C9.08021849,29.7205084 8.74313025,28.7333828 8.38702521,27.8866134 C7.48556723,25.7449529 7.31809664,22.2964084 8.11128151,19.8312475 C8.31647899,19.1935403 9.2440084,17.1845681 8.86857983,16.5953845 C8.68945378,16.0073971 8.09809244,15.6674256 7.76713866,15.2181382 C7.35766387,14.6627861 6.94880252,13.9316206 6.66539076,13.2903248 C5.92772269,11.6204345 5.58327311,9.74592941 4.80665126,8.05806513 C4.43551681,7.2511084 3.80765546,6.43458193 3.29205462,5.71721891 C2.7212437,4.92256176 2.08203361,4.33724286 1.6397395,3.37606597 C1.48239076,3.0345916 1.26860504,2.48791975 1.50202101,2.13687563 C1.5762479,1.89993235 1.68084034,1.8011063 1.91517647,1.72381218 C2.31452941,1.41589634 3.42670588,1.82625756 3.84262185,1.9990958 C4.94682353,2.45767689 5.86821849,2.89438866 6.80341597,3.5138458 C7.25245798,3.81158151 7.70640756,4.38726933 8.249,4.54664244 C8.45542437,4.54664244 8.66215546,4.54664244 8.86857983,4.54664244 C9.83782353,4.76947647 10.9236218,4.61583908 11.8290672,4.89078529 C13.4295462,5.37724748 14.8637815,6.13387101 16.1664328,6.95637857 C20.1348109,9.46199622 23.3793235,13.0288437 25.5987689,17.2837008 C25.9557941,17.9687353 26.1103824,18.6226374 26.4247731,19.3492941 C27.0593824,20.8146311 27.8587017,22.3224798 28.489937,23.7554269 C29.1199454,25.1851227 29.7340042,26.6279769 30.6244202,27.8177235 C31.0927857,28.4431311 32.900916,28.7786244 33.7226261,29.1257731 C34.2986513,29.3693109 35.242437,29.6229706 35.7880966,29.9517773 C36.8303403,30.5805588 37.8400714,31.3289622 38.8175966,32.0175546 C39.3062059,32.3616975 40.8079202,33.116542 40.8827605,33.7385756 Z"></path>
+                                            </g>
+                                            <g transform="translate(9.654588, 7.607551)">
+                                                <path d="M1.23946639,0.00929369748 C0.73460084,5.20417043e-18 0.37757563,0.0644117647 0,0.146797479 C0,0.169832353 0,0.192897899 0,0.215687395 C0.0230042017,0.215687395 0.0460084034,0.215687395 0.069012605,0.215687395 C0.309789916,0.710492437 0.734907563,1.02890126 1.03273529,1.45515378 C1.26216387,1.93710714 1.49159244,2.4190605 1.72132773,2.90070714 C1.74402521,2.87791765 1.76733613,2.85488277 1.79003361,2.83209328 C2.21637815,2.5316584 2.4117605,2.05093193 2.40961345,1.31737395 C2.23876891,1.13763445 2.21361765,0.912101261 2.06547059,0.697610084 C1.86855462,0.411867227 1.48760504,0.249518908 1.23946639,0.00929369748 Z"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="skill-name">MySQL</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24">
+                                    <path fill="#F05032" d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Git</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="#181717" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">GitHub</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="24" height="24">
+                                    <path fill="#563D7C" d="M0,222.991225 C0,241.223474 14.7785318,256 33.0087747,256 L222.991225,256 C241.223474,256 256,241.221468 256,222.991225 L256,33.0087747 C256,14.7765263 241.221468,0 222.991225,0 L33.0087747,0 C14.7765263,0 0,14.7785318 0,33.0087747 L0,222.991225 Z"/>
+                                    <path fill="#FFFFFF" d="M106.157563,113.238095 L106.157563,76.9845938 L138.069328,76.9845938 C141.108559,76.9845938 144.039202,77.2378593 146.861345,77.7443978 C149.683488,78.2509362 152.179961,79.1554557 154.35084,80.4579832 C156.52172,81.7605107 158.258397,83.5695496 159.560924,85.8851541 C160.863452,88.2007585 161.514706,91.1675823 161.514706,94.7857143 C161.514706,101.298352 159.560944,106.001853 155.653361,108.896359 C151.745779,111.790864 146.752832,113.238095 140.67437,113.238095 L106.157563,113.238095 L106.157563,113.238095 Z M72.07493,50.5 L72.07493,205.5 L147.186975,205.5 C154.133788,205.5 160.899594,204.631661 167.484594,202.894958 C174.069594,201.158255 179.93088,198.480877 185.068627,194.862745 C190.206375,191.244613 194.294803,186.577293 197.334034,180.860644 C200.373264,175.143996 201.892857,168.37819 201.892857,160.563025 C201.892857,150.866431 199.541107,142.581033 194.837535,135.706583 C190.133963,128.832132 183.00635,124.020088 173.454482,121.270308 C180.401295,117.941627 185.647508,113.672295 189.193277,108.462185 C192.739047,103.252075 194.511905,96.7395349 194.511905,88.9243697 C194.511905,81.6881057 193.317939,75.6097352 190.929972,70.6890756 C188.542005,65.7684161 185.177193,61.8247114 180.835434,58.8578431 C176.493676,55.8909749 171.283644,53.756309 165.205182,52.4537815 C159.12672,51.151254 152.397096,50.5 145.016106,50.5 L72.07493,50.5 L72.07493,50.5 Z M106.157563,179.015406 L106.157563,136.466387 L143.279412,136.466387 C150.660401,136.466387 156.594049,138.166883 161.080532,141.567927 C165.567016,144.968971 167.810224,150.649353 167.810224,158.609244 C167.810224,162.661552 167.122789,165.990183 165.747899,168.595238 C164.373009,171.200293 162.527789,173.262597 160.212185,174.782213 C157.89658,176.301828 155.219203,177.387252 152.179972,178.038515 C149.140741,178.689779 145.956833,179.015406 142.628151,179.015406 L106.157563,179.015406 L106.157563,179.015406 Z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Bootstrap</span>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="#F24E1E" d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z"/>
+                                    <path fill="#FF7262" d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z"/>
+                                    <path fill="#A259FF" d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z"/>
+                                    <path fill="#1ABCFE" d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z"/>
+                                    <path fill="#0ACF83" d="M20 12c0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4 4 1.792 4 4z"/>
+                                </svg>
+                            </div>
+                            <span class="skill-name">Figma</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="form-group floating-input">
-                  <input type="email" id="email" name="email" required placeholder=" ">
-                  <label for="email">Email</label>
-                  <div class="focus-border"></div>
+            </section>
+
+            <!-- PROJECTS -->
+            <section id="projects" class="card-section container reveal">
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px">
+                    <h3 style="margin:0; font-size:20px; font-weight:700">Projects</h3>
+                    <div style="color:var(--muted); font-size:13px">Work → Code → Results</div>
                 </div>
-              </div>
-              
-              <div class="form-group floating-input">
-                <input type="text" id="subject" name="subject" required placeholder=" ">
-                <label for="subject">Subject</label>
-                <div class="focus-border"></div>
-              </div>
-              
-              <div class="form-group floating-input">
-                <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
-                <label for="message">Message</label>
-                <div class="focus-border"></div>
-              </div>
-              
-              <button type="submit" class="btn btn-primary submit-btn">
-                <span>Send Message</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </form>
-          </div>
-          
-          <aside class="contact-sidebar">
-            <div class="card" style="padding:20px">
-              <div style="font-weight:700; margin-bottom:8px">Get in touch</div>
-              <div style="color:var(--muted); font-size:14px; margin-bottom:16px">For inquiries or opportunities, reach out directly through the form below.</div>
-              
-              <div class="social-icons">
-                <a href="mailto:cubillajairusjustin@gmail.com" class="social-icon" aria-label="Email" title="Email">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-                
-                <a href="https://github.com/jairusjustin" target="_blank" class="social-icon" aria-label="GitHub" title="GitHub">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/jairusjustin-cubilla/" target="_blank" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              </div>
-              
-              <div style="margin-top:14px; display:flex; gap:10px">
-                <a class="btn btn-outline" href="#projects">See My Work</a>
-              </div>
+
+                <div class="projects-grid">
+                    <article class="project reveal">
+                        <div class="project-thumb">
+                            <img src="assets/projects/sakainsights/sakainsights.png" alt="SakaInsights Farm Management" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title">SakaInsights Farm Management</div>
+                            <div class="project-desc">
+                                System for managing crops, fields, harvests, and sales, featuring machine learning–based profit prediction. 
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal">
+                        <div class="project-thumb">
+                            <img src="assets/projects/pcm/1.png" alt="Intern DTR System" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title">Intern DTR System</div>
+                            <div class="project-desc">
+                                Centralized intern timesheet with auto-hours and penalties — built during OJT at PCM.
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal">
+                        <div class="project-thumb">
+                            <img src="assets/projects/portfolio/1.png" alt="Personal Portfolio Website" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title">Portfolio & Site</div>
+                            <div class="project-desc">
+                                This portfolio — minimal, responsive, and thoughtfully animated.
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal">
+                        <div class="project-thumb hover-carousel">
+                            <img src="assets/projects/photobooth/1.png" alt="Photobooth web app preview" class="active">
+                            <img src="assets/projects/photobooth/2.png" alt="Photobooth web app preview 1">
+                            <img src="assets/projects/photobooth/3.png" alt="Photobooth web app preview 2">
+                            <img src="assets/projects/photobooth/4.png" alt="Photobooth web app preview 3">
+                            <img src="assets/projects/photobooth/5.png" alt="Photobooth web app preview 4">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title">Photobooth Web App</div>
+                            <div class="project-desc">
+                                A personal project that lets users create customizable photo layouts like Polaroids and photostrips, with options to download or share their shots.
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal">
+                        <div class="project-thumb">
+                            <img src="assets/projects/csh/1.png" alt="Clothing Store Ordering System" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title">Clothing Store Ordering System</div>
+                            <div class="project-desc">
+                                Multi-user order management system with admin, secretary, field, and designer roles. Tracks order status from quotation to completion with client approval workflow.
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal">
+                        <div class="project-thumb hover-carousel">
+                            <img src="assets/projects/angeleyes/1.png" alt="Internet Plan Payment System" loading="lazy" class="active">
+                            <img src="assets/projects/angeleyes/2.png" alt="Internet Plan Payment System" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-title">Internet Plan Payment System</div>
+                            <div class="project-desc">
+                                Subscription-based payment system with PayMongo API integration. Handles recurring payments, plan management, and secure transaction processing.
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- CONTACT -->
+            <section id="contact" class="card-section container reveal" aria-label="Contact section">
+                <div class="contact-container">
+                    <div class="contact-form-section">
+                        <h3 style="margin:0 0 10px 0; font-size:20px; font-weight:700">Let's connect</h3>
+                        <p style="margin:0 0 18px; color:var(--muted)">Have something you'd like to discuss? Send me a message — I'll get back to you as soon as I can.</p>
+                        
+                        <form class="contact-form" id="contactForm" action="send_email.php" method="POST">
+                            <div class="form-row">
+                                <div class="form-group floating-input">
+                                    <input type="text" id="name" name="name" required placeholder=" ">
+                                    <label for="name">Name</label>
+                                    <div class="focus-border"></div>
+                                </div>
+                                
+                                <div class="form-group floating-input">
+                                    <input type="email" id="email" name="email" required placeholder=" ">
+                                    <label for="email">Email</label>
+                                    <div class="focus-border"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group floating-input">
+                                <input type="text" id="subject" name="subject" required placeholder=" ">
+                                <label for="subject">Subject</label>
+                                <div class="focus-border"></div>
+                            </div>
+                            
+                            <div class="form-group floating-input">
+                                <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                                <label for="message">Message</label>
+                                <div class="focus-border"></div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span>Send Message</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                    <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <aside class="contact-sidebar">
+                        <div class="card" style="padding:20px">
+                            <div style="font-weight:700; margin-bottom:8px">Get in touch</div>
+                            <div style="color:var(--muted); font-size:14px; margin-bottom:16px">For inquiries or opportunities, reach out directly through the form below.</div>
+                            
+                            <div class="social-icons">
+                                <a href="mailto:cubillajairusjustin@gmail.com" class="social-icon" aria-label="Email" title="Email">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                
+                                <a href="https://github.com/jairusjustin" target="_blank" class="social-icon" aria-label="GitHub" title="GitHub">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                                
+                                <a href="https://www.linkedin.com/in/jairusjustin-cubilla/" target="_blank" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div style="margin-top:14px; display:flex; gap:10px">
+                                <a class="btn btn-outline" href="#projects">See My Work</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
+                <div style="color:var(--muted); font-size:13px">© <strong>Jairus Justin</strong> · 2025</div>
+                <div style="display:flex; gap:10px; align-items:center">
+                    <a href="https://github.com/jairusjustin" target="_blank" style="color:var(--muted)" aria-label="Github">GitHub</a>
+                    <a href="https://www.linkedin.com/in/jairus-justin-cubilla-a006862a2/" target="_blank" style="color:var(--muted)" aria-label="LinkedIn">LinkedIn</a>
+                </div>
             </div>
-          </aside>
-        </div>
-      </section>
-    </main>
+        </footer>
+    </div>
 
-    <!-- FOOTER -->
-    <footer>
-      <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
-        <div style="color:var(--muted); font-size:13px">© <strong>Jairus Justin</strong> · 2025</div>
-        <div style="display:flex; gap:10px; align-items:center">
-          <a href="https://github.com/jairusjustin" target="_blank" style="color:var(--muted)" aria-label="Github">GitHub</a>
-          <a href="https://www.linkedin.com/in/jairus-justin-cubilla-a006862a2/" target="_blank" style="color:var(--muted)" aria-label="LinkedIn">LinkedIn</a>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- JavaScript -->
-  <script src="js/script.js"></script>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>

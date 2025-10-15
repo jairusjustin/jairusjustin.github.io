@@ -40,19 +40,43 @@
 
   reveals.forEach(r => io.observe(r));
 
-  // simple active nav highlight while scrolling
+  // Fixed active nav highlight using Intersection Observer
   const navLinks = document.querySelectorAll('nav.main-nav a');
-  const sections = Array.from(navLinks).map(l => document.querySelector(l.getAttribute('href')));
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY + window.innerHeight/3;
-    for(let i=0;i<sections.length;i++){
-      const s = sections[i];
-      if(!s) continue;
-      if(y >= s.offsetTop && y < s.offsetTop + s.offsetHeight){
-        navLinks.forEach(n=>n.classList.remove('active'));
-        navLinks[i].classList.add('active');
+  const sections = {};
+
+  // Create a map of section IDs to their nav links
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href.startsWith('#')) {
+      const sectionId = href.substring(1);
+      const section = document.getElementById(sectionId);
+      if (section) {
+        sections[sectionId] = link;
       }
     }
+  });
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const sectionId = entry.target.getAttribute('id');
+      const link = sections[sectionId];
+      
+      if (entry.isIntersecting) {
+        // Remove active from all links
+        navLinks.forEach(n => n.classList.remove('active'));
+        // Add active to current section's link
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { 
+    rootMargin: '-25% 0px -70% 0px',
+    threshold: 0.1
+  });
+
+  // Observe all sections
+  Object.keys(sections).forEach(sectionId => {
+    const section = document.getElementById(sectionId);
+    if (section) sectionObserver.observe(section);
   });
 
   // Hover carousel functionality
