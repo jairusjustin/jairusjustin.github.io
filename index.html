@@ -18,6 +18,21 @@
 </head>
 
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-orbital">
+            <div class="orbit-ring">
+                <div class="orbit-dot"></div>
+            </div>
+            <div class="orbit-ring">
+                <div class="orbit-dot"></div>
+            </div>
+            <div class="loader-logo">
+                <img src="assets/images/icons/2-no-bg.png" alt="Jairus Justin">
+            </div>
+        </div>
+    </div>
+    
     <!-- Theme attr will be toggled by JS -->
     <div id="page" class="page" data-theme="light">
 
@@ -61,7 +76,9 @@
                     <div class="hero-left">
                         <span class="eyebrow">Connect · Create · Innovate</span>
                         <h1 class="hero-title">Hi — I'm <span style="color:var(--accent)">Jairus Justin Cubilla</span></h1>
-                        <p class="lead">IT graduate specializing in Business Analytics. I build responsive websites, manage databases, and develop intuitive interfaces using PHP, JavaScript, SQL, and modern web technologies.</p>
+                        <p class="lead">
+                            Building web experiences through code and data. I develop responsive websites, manage databases, and create intuitive interfaces using PHP, JavaScript, SQL, and modern web technologies.
+                        </p>
 
                         <div class="cta-row" style="margin-top:18px">
                             <a class="btn btn-primary" href="#projects">View Projects</a>
@@ -72,44 +89,42 @@
                     <div class="hero-right">
                         <div class="hero-photo">
                             <img src="assets/images/cubilla1.jpg" alt="Jairus Justin Cubilla" />
+                            <div class="photo-ornament"></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- ABOUT -->
-            <section id="about" class="card-section container reveal">
-                <div class="card two-col" style="align-items:center">
-                    <div>
-                        <h3 style="margin:0 0 10px 0; font-size:20px; font-weight:700;">About</h3>
-                        <p style="margin:0 0 14px; color:var(--muted)">
-                            I'm Jairus Justin Cubilla, an IT graduate with a passion for building clean, efficient, and user-friendly web experiences. I specialize in web development, data analytics, and intuitive interface design, turning complex problems into simple, functional solutions.
-                        </p>
-                        <p style="margin:0 0 18px; color:var(--muted)">
-                            Graduated Cum Laude from Batangas State University with a degree in Information Technology, majoring in Business Analytics. I thrive in collaborative projects, enjoy learning new technologies, and am always looking for opportunities to create meaningful digital products that make an impact.
-                        </p>
-
-                        <div class="chips" aria-hidden="true">
-                            <span class="chip">Web Development</span>
-                            <span class="chip">Data Analytics</span>
-                            <span class="chip">Database Management</span>
-                            <span class="chip">UI/UX Design</span>
+            <section id="about" class="about-section container reveal">
+                <div class="about-card">
+                    <div class="about-grid">
+                        <div class="about-content">
+                            <h3>About Me</h3>
+                            <p class="about-text">
+                                I'm Jairus Justin Cubilla, an IT graduate passionate about building clean, efficient, and user-friendly web experiences. I specialize in web development, data analytics, and intuitive interface design — transforming complex problems into simple, functional solutions.
+                            </p>
+                            <p class="about-text">
+                                I graduated Cum Laude from Batangas State University with a Bachelor's degree in Information Technology, majoring in Business Analytics. Through my education, I gained strong skills in development, data analytics, and problem-solving.
+                            </p>
+                            <p class="about-text">
+                                I've gained hands-on experience through freelance projects, helping businesses and clients build impactful, user-focused websites. My goal is to turn ideas into purposeful digital experiences that connect, engage, and leave a lasting impression.
+                            </p>
                         </div>
+
+                        <aside class="about-sidebar">
+                            <div class="about-photo">
+                                <img src="assets/images/cubilla2.jpg" alt="Jairus Justin Cubilla - Graduation Photo" loading="lazy">
+                            </div>
+                            <a href="assets/documents/cubilla_cv.pdf" target="_blank" class="cv-link">
+                                View CV
+                            </a>
+                        </aside>
                     </div>
-
-                    <aside style="width:300px; display:flex; flex-direction:column; align-items:center; gap:12px">
-                        <div class="hero-photo" style="width:100%; max-width:220px; border-radius:16px; overflow:hidden; box-shadow:var(--shadow)">
-                            <img src="assets/images/cubilla2.jpg" alt="Jairus Justin Cubilla - Graduation Photo" style="width:100%; height:auto; object-fit:cover"/>
-                        </div>
-
-                        <a href="assets/documents/cubilla_cv.pdf" target="_blank" class="cv-link">
-                            Download CV
-                        </a>
-                    </aside>
                 </div>
             </section>
 
-            <!-- CERTIFICATIONS CAROUSEL -->
+            <!-- CERTIFICATIONS -->
             <section id="certifications" class="certifications-section container reveal">
                 <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px">
                     <h3 style="margin:0; font-size:20px; font-weight:700">Certifications</h3>
@@ -566,6 +581,11 @@
                     <article class="project reveal">
                         <div class="project-thumb">
                             <img src="assets/projects/sakainsights/sakainsights.png" alt="SakaInsights Farm Management" loading="lazy">
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">MySQL</span>
+                                <span class="project-tag">ML</span>
+                            </div>
                         </div>
                         <div class="project-body">
                             <div class="project-title">SakaInsights Farm Management</div>
@@ -578,6 +598,11 @@
                     <article class="project reveal">
                         <div class="project-thumb">
                             <img src="assets/projects/pcm/1.png" alt="Intern DTR System" loading="lazy">
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">Bootstrap</span>
+                                <span class="project-tag">MySQL</span>
+                            </div>
                         </div>
                         <div class="project-body">
                             <div class="project-title">Intern DTR System</div>
@@ -590,6 +615,11 @@
                     <article class="project reveal">
                         <div class="project-thumb">
                             <img src="assets/projects/portfolio/1.png" alt="Personal Portfolio Website" loading="lazy">
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
                         </div>
                         <div class="project-body">
                             <div class="project-title">Portfolio & Site</div>
@@ -606,6 +636,11 @@
                             <img src="assets/projects/photobooth/3.png" alt="Photobooth web app preview 2">
                             <img src="assets/projects/photobooth/4.png" alt="Photobooth web app preview 3">
                             <img src="assets/projects/photobooth/5.png" alt="Photobooth web app preview 4">
+                            <div class="project-tags">
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">Canvas</span>
+                                <span class="project-tag">UI/UX</span>
+                            </div>
                         </div>
                         <div class="project-body">
                             <div class="project-title">Photobooth Web App</div>
@@ -618,6 +653,11 @@
                     <article class="project reveal">
                         <div class="project-thumb">
                             <img src="assets/projects/csh/1.png" alt="Clothing Store Ordering System" loading="lazy">
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">MySQL</span>
+                                <span class="project-tag">Bootstrap</span>
+                            </div>
                         </div>
                         <div class="project-body">
                             <div class="project-title">Clothing Store Ordering System</div>
@@ -631,6 +671,11 @@
                         <div class="project-thumb hover-carousel">
                             <img src="assets/projects/angeleyes/1.png" alt="Internet Plan Payment System" loading="lazy" class="active">
                             <img src="assets/projects/angeleyes/2.png" alt="Internet Plan Payment System" loading="lazy">
+                            <div class="project-tags">
+                                <span class="project-tag">PHP</span>
+                                <span class="project-tag">API</span>
+                                <span class="project-tag">Payments</span>
+                            </div>
                         </div>
                         <div class="project-body">
                             <div class="project-title">Internet Plan Payment System</div>
@@ -696,6 +741,11 @@
 
                     <!-- Right Side - Form -->
                     <div class="contact-form-side">
+                        <div class="form-intro">
+                            <h4>Send a Message</h4>
+                            <p>Alternatively, use this form to reach out directly</p>
+                        </div>
+                        
                         <form action="https://formspree.io/f/mqaywrkb" method="POST" class="contact-form">
                             <div class="form-group">
                                 <label for="email">Email:</label>
@@ -721,11 +771,9 @@
 
         <!-- FOOTER -->
         <footer>
-            <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
-                <div style="color:var(--muted); font-size:13px">© <strong>Jairus Justin</strong> · 2025</div>
-                <div style="display:flex; gap:10px; align-items:center">
-                    <a href="https://github.com/jairusjustin" target="_blank" style="color:var(--muted)" aria-label="Github">GitHub</a>
-                    <a href="https://www.linkedin.com/in/jairus-justin-cubilla-a006862a2/" target="_blank" style="color:var(--muted)" aria-label="LinkedIn">LinkedIn</a>
+            <div class="container">
+                <div style="text-align: center; color: var(--muted); font-size: 13px;">
+                    <p style="margin: 0;">© 2025 Jairus Justin Cubilla · All rights reserved</p>
                 </div>
             </div>
         </footer>

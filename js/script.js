@@ -1,4 +1,9 @@
-// Email Modal Functions - ADD THESE AT THE TOP
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        document.getElementById('pageLoader').classList.add('fade-out');
+    }, 1000); 
+});
+
 function openModal(e) {
     e.preventDefault();
     const modal = document.getElementById('emailModal');
@@ -30,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-(function(){
+(function() {
     const root = document.getElementById('page');
     const toggle = document.getElementById('themeToggle');
     const icon = document.getElementById('themeIcon');
 
-    // load saved theme
+    // Load saved theme
     const saved = localStorage.getItem('jj_theme') || 'light';
     root.setAttribute('data-theme', saved);
     updateToggle(saved);
@@ -47,11 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
         updateToggle(next);
     });
 
-    function updateToggle(theme){
-        // accessibility
+    function updateToggle(theme) {
+        // Accessibility
         toggle.setAttribute('aria-pressed', theme === 'dark');
-        // swap simple icon: sun for light, moon for dark
-        if(theme === 'dark'){
+        
+        // Swap simple icon: sun for light, moon for dark
+        if (theme === 'dark') {
             icon.innerHTML = '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>';
         } else {
             icon.innerHTML = '<path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 7a5 5 0 100 10 5 5 0 000-10z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>';
@@ -66,10 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
-                    // Don't unobserve to allow re-animation if needed
-                } else {
-                    // Optional: remove show class when element leaves viewport
-                    // entry.target.classList.remove('show');
                 }
             });
         }, { 
@@ -82,35 +84,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Fixed active nav highlight using Intersection Observer
+    // Fixed active nav highlight
     function initNavHighlight() {
         const navLinks = document.querySelectorAll('nav.main-nav a');
         const sections = {};
 
-        // Create a map of section IDs to their nav links
+        // Add click handlers first
         navLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href.startsWith('#')) {
-                const sectionId = href.substring(1);
-                const section = document.getElementById(sectionId);
-                if (section) {
-                    sections[sectionId] = link;
-                }
-            }
+            link.addEventListener('click', () => {
+                // Remove active from all links
+                navLinks.forEach(n => n.classList.remove('active'));
+                // Add active to clicked link
+                link.classList.add('active');
+            });
         });
 
+        // Then set up Intersection Observer for scroll-based updates
         const sectionObserver = new IntersectionObserver((entries) => {
             let foundActive = false;
             
-            // First pass: find the most relevant section
             entries.forEach(entry => {
                 const sectionId = entry.target.getAttribute('id');
                 const link = sections[sectionId];
                 
                 if (entry.isIntersecting && !foundActive) {
-                    // Remove active from all links
                     navLinks.forEach(n => n.classList.remove('active'));
-                    // Add active to current section's link
                     if (link) {
                         link.classList.add('active');
                         foundActive = true;
@@ -118,15 +116,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, { 
-            // More balanced margins for better detection
             rootMargin: '-25% 0px -40% 0px',
             threshold: 0.1
         });
 
-        // Observe all sections
-        Object.keys(sections).forEach(sectionId => {
-            const section = document.getElementById(sectionId);
-            if (section) sectionObserver.observe(section);
+        // Create section map and observe
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                const sectionId = href.substring(1);
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    sections[sectionId] = link;
+                    sectionObserver.observe(section);
+                }
+            }
         });
     }
 
