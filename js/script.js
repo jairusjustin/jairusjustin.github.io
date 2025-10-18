@@ -38,18 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Theme toggle functionality
 (function() {
-    const root = document.getElementById('page');
+    const body = document.body; // CHANGE THIS
     const toggle = document.getElementById('themeToggle');
     const icon = document.getElementById('themeIcon');
 
     // Load saved theme
     const saved = localStorage.getItem('jj_theme') || 'light';
-    root.setAttribute('data-theme', saved);
+    body.setAttribute('data-theme', saved); // CHANGE THIS
     updateToggle(saved);
 
     toggle.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        root.setAttribute('data-theme', next);
+        const next = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; // CHANGE THIS
+        body.setAttribute('data-theme', next); // CHANGE THIS
         localStorage.setItem('jj_theme', next);
         updateToggle(next);
     });
@@ -183,8 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function startAutoScroll() {
             stopAutoScroll();
-            if (VISIBLE_CARDS === 1) return;
-            
             autoScrollInterval = setInterval(() => {
                 handleNext();
             }, AUTO_SCROLL_DELAY);
@@ -216,80 +214,51 @@ document.addEventListener('DOMContentLoaded', function() {
                 CARD_WIDTH = 200 + 16;
                 VISIBLE_CARDS = 3;
             } else {
-                CONTAINER_WIDTH = 344;
-                CARD_WIDTH = 320 + 24;
-                VISIBLE_CARDS = 1;
+                // Update these to match your CSS mobile values
+                CONTAINER_WIDTH = 344;  // Match CSS max-width: 344px
+                CARD_WIDTH = 320 + 24;  // Match CSS flex: 0 0 320px + margin
+                VISIBLE_CARDS = 3;
             }
         }
 
-function cloneCards() {
-    const existingClones = carouselContainer.querySelectorAll('.certification-card.clone');
-    existingClones.forEach(clone => clone.remove());
-    
-    if (VISIBLE_CARDS === 1) {
-        // SINGLE MODE: Create proper infinite scroll structure
-        // [LAST_CLONE] + [ALL_REAL_CARDS] + [FIRST_CLONE]
-        
-        // Add last card as clone at beginning
-        const firstClone = originalCards[totalRealCards - 1].cloneNode(true);
-        firstClone.classList.add('clone');
-        carouselContainer.appendChild(firstClone);
-        
-        // Add all original cards
-        originalCards.forEach(card => {
-            const clone = card.cloneNode(true);
-            clone.classList.add('clone');
-            carouselContainer.appendChild(clone);
-        });
-        
-        // Add first card as clone at end  
-        const lastClone = originalCards[0].cloneNode(true);
-        lastClone.classList.add('clone');
-        carouselContainer.appendChild(lastClone);
-        
-        currentIndex = 1; // Start at first real card
-    } else {
-        // Multi-card mode: existing clone logic
-        const beginningCards = [6, 0, 1];
-        for (let i = 0; i < beginningCards.length; i++) {
-            const clone = originalCards[beginningCards[i]].cloneNode(true);
-            clone.classList.add('clone');
-            carouselContainer.insertBefore(clone, carouselContainer.firstChild);
+        function cloneCards() {
+            const existingClones = carouselContainer.querySelectorAll('.certification-card.clone');
+            existingClones.forEach(clone => clone.remove());
+            
+            // ALWAYS use 3-card clone pattern
+            const beginningCards = [6, 0, 1];
+            for (let i = 0; i < beginningCards.length; i++) {
+                const clone = originalCards[beginningCards[i]].cloneNode(true);
+                clone.classList.add('clone');
+                carouselContainer.insertBefore(clone, carouselContainer.firstChild);
+            }
+            
+            for (let i = 0; i < 3; i++) {
+                const clone = originalCards[i].cloneNode(true);
+                clone.classList.add('clone');
+                carouselContainer.appendChild(clone);
+            }
+            
+            currentIndex = 3;
+            centerCarousel();
         }
-        
-        for (let i = 0; i < 3; i++) {
-            const clone = originalCards[i].cloneNode(true);
-            clone.classList.add('clone');
-            carouselContainer.appendChild(clone);
-        }
-        currentIndex = 3;
-    }
-    
-    centerCarousel();
-}
         
         function getAllCards() {
             return document.querySelectorAll('.certification-card');
         }
         
-function centerCarousel() {
-    updateDimensions();
-    
-    if (VISIBLE_CARDS === 1) {
-        // Use the working formula from earlier
-        const visibleContainer = carouselContainer.parentElement.clientWidth;
-        const translateX = (visibleContainer) - (CARD_WIDTH / 2) - (currentIndex * CARD_WIDTH);
-        carouselContainer.style.transform = `translateX(${translateX}px)`;
-    } else {
-        const cardsWidth = CARD_WIDTH * 3;
-        const offset = (CONTAINER_WIDTH - cardsWidth) / 2;
-        const translateX = -((currentIndex * CARD_WIDTH) - offset);
-        carouselContainer.style.transform = `translateX(${translateX}px)`;
-    }
-    
-    updateCardFocus();
-    updateDots();
-}
+        function centerCarousel() {
+            updateDimensions();
+            
+            // ALWAYS use 3-card positioning
+            const cardsWidth = CARD_WIDTH * 3;
+            const offset = (CONTAINER_WIDTH - cardsWidth) / 2;
+            const translateX = -((currentIndex * CARD_WIDTH) - offset);
+            carouselContainer.style.transform = `translateX(${translateX}px)`;
+            
+            updateCardFocus();
+            updateDots();
+        }
         
         function updateCardFocus() {
             const allCards = getAllCards();
@@ -297,15 +266,10 @@ function centerCarousel() {
             allCards.forEach((card, index) => {
                 card.classList.remove('middle-card');
                 
-                if (VISIBLE_CARDS === 1) {
-                    if (index === currentIndex) {
-                        card.classList.add('middle-card');
-                    }
-                } else {
-                    const middleIndex = currentIndex + 1;
-                    if (index === middleIndex) {
-                        card.classList.add('middle-card');
-                    }
+                // ALWAYS use 3-card middle logic
+                const middleIndex = currentIndex + 1;
+                if (index === middleIndex) {
+                    card.classList.add('middle-card');
                 }
             });
         }
@@ -320,15 +284,11 @@ function centerCarousel() {
                 dot.classList.add('carousel-dot');
                 if (i === 0) dot.classList.add('active');
                 
-dot.addEventListener('click', () => {
-    if (VISIBLE_CARDS === 1) {
-        currentIndex = i + 1; // +1 because real cards start at index 1 (clone at 0)
-    } else {
-        currentIndex = i + 3;
-    }
-    updateCarousel();
-    restartAutoScroll();
-});
+                dot.addEventListener('click', () => {
+                    currentIndex = i + 3;
+                    updateCarousel();
+                    restartAutoScroll();
+                });
                 
                 carouselDots.appendChild(dot);
             }
@@ -342,129 +302,75 @@ dot.addEventListener('click', () => {
             
             let activeDotIndex;
             
-            if (VISIBLE_CARDS === 1) {
-        activeDotIndex = currentIndex - 1;
-        if (activeDotIndex < 0) activeDotIndex = totalRealCards - 1; // Last dot for first clone
-        if (activeDotIndex >= totalRealCards) activeDotIndex = 0; // First dot for last clone
+            // ALWAYS use 3-card dot logic
+            const allCards = getAllCards();
+            const middleIndex = currentIndex + 1;
+            const totalAllCards = allCards.length;
+            
+            if (middleIndex < 3) {
+                activeDotIndex = totalRealCards - 3 + middleIndex;
+            } else if (middleIndex >= totalAllCards - 3) {
+                activeDotIndex = middleIndex - (totalAllCards - 3);
             } else {
-                const allCards = getAllCards();
-                const middleIndex = currentIndex + 1;
-                const totalAllCards = allCards.length;
-                
-                if (middleIndex < 3) {
-                    activeDotIndex = totalRealCards - 3 + middleIndex;
-                } else if (middleIndex >= totalAllCards - 3) {
-                    activeDotIndex = middleIndex - (totalAllCards - 3);
-                } else {
-                    activeDotIndex = middleIndex - 3;
-                }
-                
-                activeDotIndex = activeDotIndex % totalRealCards;
+                activeDotIndex = middleIndex - 3;
             }
+            
+            activeDotIndex = activeDotIndex % totalRealCards;
             
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === activeDotIndex);
             });
         }
         
-function updateCarousel() {
-    updateDimensions();
-    const allCards = getAllCards();
-    const totalAllCards = allCards.length;
-    
-    let isJumping = false;
-    
-    if (VISIBLE_CARDS === 1) {
-        // SINGLE MODE: Handle infinite scroll with clones
-        if (currentIndex >= totalAllCards - 1) {
-            // Jump from last clone to first real card
-            isJumping = true;
-            setTimeout(() => {
-                carouselContainer.style.transition = 'none';
-                currentIndex = 1; // Jump to first real card
-                const visibleContainer = carouselContainer.parentElement.clientWidth;
-                const translateX = (visibleContainer) - (CARD_WIDTH / 2) - (currentIndex * CARD_WIDTH);
-                carouselContainer.style.transform = `translateX(${translateX}px)`;
-                
-                requestAnimationFrame(() => {
-                    updateCardFocus();
-                    updateDots();
+        function updateCarousel() {
+            updateDimensions();
+            const allCards = getAllCards();
+            const totalAllCards = allCards.length;
+            
+            let isJumping = false;
+            
+            // ALWAYS use 3-card mode logic
+            const cardsWidth = CARD_WIDTH * 3;
+            const offset = (CONTAINER_WIDTH - cardsWidth) / 2;
+            
+            if (currentIndex >= totalAllCards - 3) {
+                isJumping = true;
+                setTimeout(() => {
+                    carouselContainer.style.transition = 'none';
+                    currentIndex = 3;
+                    const newTranslateX = -((currentIndex * CARD_WIDTH) - offset);
+                    carouselContainer.style.transform = `translateX(${newTranslateX}px)`;
+                    
                     requestAnimationFrame(() => {
-                        carouselContainer.style.transition = `transform ${TRANSITION_DURATION}ms ease-in-out`;
-                    });
-                });
-            }, TRANSITION_DURATION);
-        } else if (currentIndex <= 0) {
-            // Jump from first clone to last real card
-            isJumping = true;
-            setTimeout(() => {
-                carouselContainer.style.transition = 'none';
-                currentIndex = totalAllCards - 2; // Jump to last real card
-                const visibleContainer = carouselContainer.parentElement.clientWidth;
-                const translateX = (visibleContainer) - (CARD_WIDTH / 2) - (currentIndex * CARD_WIDTH);
-                carouselContainer.style.transform = `translateX(${translateX}px)`;
-                
-                requestAnimationFrame(() => {
-                    updateCardFocus();
-                    updateDots();
-                    requestAnimationFrame(() => {
-                        carouselContainer.style.transition = `transform ${TRANSITION_DURATION}ms ease-in-out`;
-                    });
-                });
-            }, TRANSITION_DURATION);
-        }
-        
-        const visibleContainer = carouselContainer.parentElement.clientWidth;
-        const translateX = (visibleContainer) - (CARD_WIDTH / 2) - (currentIndex * CARD_WIDTH);
-        carouselContainer.style.transform = `translateX(${translateX}px)`;
-        
-        if (!isJumping) {
-            updateCardFocus();
-            updateDots();
-        }
-    } else {
-                const cardsWidth = CARD_WIDTH * 3;
-                const offset = (CONTAINER_WIDTH - cardsWidth) / 2;
-                
-                if (currentIndex >= totalAllCards - 3) {
-                    isJumping = true;
-                    setTimeout(() => {
-                        carouselContainer.style.transition = 'none';
-                        currentIndex = 3;
-                        const newTranslateX = -((currentIndex * CARD_WIDTH) - offset);
-                        carouselContainer.style.transform = `translateX(${newTranslateX}px)`;
+                        updateCardFocus();
+                        updateDots();
                         
                         requestAnimationFrame(() => {
-                            updateCardFocus();
-                            updateDots();
-                            
-                            requestAnimationFrame(() => {
-                                carouselContainer.style.transition = `transform ${TRANSITION_DURATION}ms ease-in-out`;
-                            });
+                            carouselContainer.style.transition = `transform ${TRANSITION_DURATION}ms ease-in-out`;
                         });
-                    }, TRANSITION_DURATION);
-                } else if (currentIndex < 3) {
-                    isJumping = true;
-                    setTimeout(() => {
-                        carouselContainer.style.transition = 'none';
-                        currentIndex = totalAllCards - 4;
-                        const newTranslateX = -((currentIndex * CARD_WIDTH) - offset);
-                        carouselContainer.style.transform = `translateX(${newTranslateX}px)`;
+                    });
+                }, TRANSITION_DURATION);
+            } else if (currentIndex < 3) {
+                isJumping = true;
+                setTimeout(() => {
+                    carouselContainer.style.transition = 'none';
+                    currentIndex = totalAllCards - 4;
+                    const newTranslateX = -((currentIndex * CARD_WIDTH) - offset);
+                    carouselContainer.style.transform = `translateX(${newTranslateX}px)`;
+                    
+                    requestAnimationFrame(() => {
+                        updateCardFocus();
+                        updateDots();
                         
                         requestAnimationFrame(() => {
-                            updateCardFocus();
-                            updateDots();
-                            
-                            requestAnimationFrame(() => {
-                                carouselContainer.style.transition = `transform ${TRANSITION_DURATION}ms ease-in-out`;
-                            });
+                            carouselContainer.style.transition = `transform ${TRANSITION_DURATION}ms ease-in-out`;
                         });
-                    }, TRANSITION_DURATION);
-                }
-                
-                const translateX = -((currentIndex * CARD_WIDTH) - offset);
-                carouselContainer.style.transform = `translateX(${translateX}px)`;
+                    });
+                }, TRANSITION_DURATION);
             }
+            
+            const translateX = -((currentIndex * CARD_WIDTH) - offset);
+            carouselContainer.style.transform = `translateX(${translateX}px)`;
             
             if (!isJumping) {
                 updateCardFocus();
@@ -485,7 +391,7 @@ function updateCarousel() {
         }
 
         function setupSwipe() {
-            const threshold = window.innerWidth <= 667 ? 30 : 50;
+            const threshold = 50;
             
             carouselContainer.addEventListener('mousedown', handleDragStart);
             carouselContainer.addEventListener('touchstart', handleDragStart);
@@ -537,10 +443,8 @@ function updateCarousel() {
             if (prevBtn) prevBtn.addEventListener('click', handlePrev);
             if (nextBtn) nextBtn.addEventListener('click', handleNext);
             
-            if (VISIBLE_CARDS > 1) {
-                carouselContainer.addEventListener('mouseenter', stopAutoScroll);
-                carouselContainer.addEventListener('mouseleave', startAutoScroll);
-            }
+            carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+            carouselContainer.addEventListener('mouseleave', startAutoScroll);
         }
         
         function init() {
@@ -553,14 +457,7 @@ function updateCarousel() {
         }
         
         function handleResize() {
-            const oldVisibleCards = VISIBLE_CARDS;
             updateDimensions();
-            
-            if (oldVisibleCards !== VISIBLE_CARDS) {
-                cloneCards();
-                createDots();
-            }
-            
             centerCarousel();
             restartAutoScroll();
         }
