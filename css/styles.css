@@ -12,18 +12,18 @@
   --shadow: 0 6px 20px rgba(15, 23, 32, 0.06);
   --radius: 12px;
   --transition: 320ms cubic-bezier(0.2, 0.9, 0.3, 1);
-  --github-color: #181717; /* Dark for light mode */
+  --github-color: #181717; 
 }
 
 [data-theme="dark"] {
-  --bg: #1a1d21; /* Dark background */
-  --panel: #2d3035; /* Dark panels */
-  --muted: #9aa3ad; /* Light muted text */
-  --text: #e6eef6; /* Light main text */
-  --accent: #f5f7fa; /* Light accents */
-  --soft: #25282d; /* Dark soft background */
-  --glass: rgba(255, 255, 255, 0.03); /* Light glass effect */
-  --shadow: 0 10px 30px rgba(2, 6, 12, 0.6); /* Darker shadows */
+  --bg: #1a1d21; 
+  --panel: #2d3035; 
+  --muted: #9aa3ad; 
+  --text: #e6eef6; 
+  --accent: #f5f7fa; 
+  --soft: #25282d; 
+  --glass: rgba(255, 255, 255, 0.03); 
+  --shadow: 0 10px 30px rgba(2, 6, 12, 0.6); 
   --github-color: #ffffff; 
 }
 
@@ -91,7 +91,6 @@ img {
   pointer-events: none;
 }
 
-/* Orbital loader with logo */
 .loader-orbital {
   position: relative;
   width: 120px;
@@ -269,7 +268,6 @@ nav.main-nav a.active::after {
   align-items: center;
 }
 
-/* Theme toggle button styles */
 .toggle-btn {
   --size: 40px;
   width: var(--size);
@@ -282,20 +280,52 @@ nav.main-nav a.active::after {
   border: none;
   cursor: pointer;
   transition: transform var(--transition), background var(--transition);
-  color: var(--text); /* Add this to ensure icon color matches text */
+  color: var(--text); 
 }
 
 .toggle-btn:active {
   transform: translateY(1px);
 }
 
-/* Ensure the SVG icon uses the button's color */
 .toggle-btn svg {
   color: inherit;
 }
 
-#home, #about, #certifications, #skills, #projects, #contact {
-  scroll-margin-top: 80px; 
+/* ==========================
+   Section Scroll Margins 
+   ========================== */
+#home {
+  scroll-margin-top: 120px; 
+}
+
+#about {
+  scroll-margin-top: 100px; 
+}
+
+#skills {
+  scroll-margin-top: 110px; 
+}
+
+#certifications {
+  scroll-margin-top: 90px; 
+}
+
+#projects {
+  scroll-margin-top: 70px;
+}
+
+#contact {
+  scroll-margin-top: 40px; 
+}
+
+@media (max-width: 880px) {
+  #projects {
+    scroll-margin-top: 20px;
+  }
+  
+  #contact {
+    scroll-margin-top: 30px;
+  }
 }
 
 /* ==========================
@@ -453,7 +483,7 @@ p.lead {
   
   .hero-right {
     max-width: 240px;
-    max-height: 320px; /* 280 + 20+20 */
+    max-height: 320px; 
     padding: 20px;
   }
   
@@ -474,8 +504,6 @@ p.lead {
     font-size: 14px;
   }
 }
-
-
 
 @media (max-width: 868px) {
   .hero-inner {
@@ -981,7 +1009,6 @@ p.lead {
   box-shadow: 0 2px 8px rgba(17, 24, 39, 0.2);
 }
 
-/* Loading state */
 .certification-card.loading {
   position: relative;
   overflow: hidden;
@@ -1359,8 +1386,8 @@ p.lead {
   
   .carousel-container {
     padding: 0;
-    justify-content: flex-start; /* Change from center to flex-start */
-    width: max-content; /* Allow container to be wider than viewport */
+    justify-content: flex-start; 
+    width: max-content; 
   }
   
   .certification-card {
@@ -1368,17 +1395,15 @@ p.lead {
     min-width: 320px;
     margin: 0 12px;
     padding: 24px 20px;
-    /* Remove opacity/visibility from base card */
+
   }
   
-  /* HIDE all cards by default */
   .certification-card {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
   
-  /* SHOW only the middle card */
   .certification-card.middle-card {
     opacity: 1 !important;
     visibility: visible !important;
@@ -1386,9 +1411,8 @@ p.lead {
     transform: scale(1);
   }
   
-  /* Override the transform positioning for mobile */
   .certification-card.middle-card {
-    transform: translateX(0) !important; /* Force middle card to visible position */
+    transform: translateX(0) !important; /
   }
   
   .certification-card:hover {
@@ -1399,7 +1423,6 @@ p.lead {
     transform: translateY(-4px) !important;
   }
   
-  /* Rest of your mobile styles remain the same */
   .certification-visual {
     margin-bottom: 22px;
     height: 65px;
@@ -1594,7 +1617,6 @@ p.lead {
   }
 }
 
-/* Enhanced seamless masking */
 .skills-scroll-container::before,
 .skills-scroll-container::after {
   content: '';
@@ -1717,7 +1739,7 @@ p.lead {
 }
 
 /* ==========================
-   Projects Section - Enhanced
+   Projects Section 
    ========================== */
 .projects-section {
   padding: 90px 0;
@@ -1731,7 +1753,7 @@ p.lead {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 24px 20px;
 }
 
 .project {
@@ -1851,13 +1873,17 @@ p.lead {
 
 .hover-carousel img {
   opacity: 0;
-  transition: opacity 0.6s linear;
+  transition: opacity 0.6s linear, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: absolute;
   inset: 0;
 }
 
 .hover-carousel img.active {
   opacity: 1;
+}
+
+.project:hover .hover-carousel img.active {
+  transform: scale(1.05);
 }
 
 .project-body {
@@ -1888,9 +1914,62 @@ p.lead {
   margin: 0;
 }
 
-/* Add subtle loading animation for reveal */
 .project.reveal {
   animation: fadeInUp 0.6s ease forwards;
+}
+
+.live-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 5px 8px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text); 
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(16px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.3s ease 0.1s;
+    z-index: 3;
+}
+
+[data-theme="light"] .live-icon {
+    background: var(--glass); 
+    border: 1px solid rgba(15, 23, 32, 0.1);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="light"] .live-icon:hover {
+    background: var(--soft); 
+    border-color: rgba(15, 23, 32, 0.2);
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .live-icon {
+    background: rgba(15, 23, 32, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .live-icon:hover {
+    background: rgba(15, 23, 32, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-thumb:hover .live-icon {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.live-icon:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 @keyframes fadeInUp {
@@ -1918,7 +1997,7 @@ p.lead {
 }
 
 /* ==========================
-   Contact Section - Two Column Layout
+   Contact Section 
    ========================== */
 .contact-section {
   padding: 100px 0;
@@ -1969,7 +2048,7 @@ p.lead {
   line-height: 1.6;
 }
 /* ==========================
-   Enhanced Contact Links
+   Contact Links
    ========================== */
 .contact-links {
   display: flex;
@@ -2384,7 +2463,6 @@ footer {
   outline-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
 }
-
 
 /* ==========================
    Responsive Design

@@ -38,18 +38,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Theme toggle functionality
 (function() {
-    const body = document.body; // CHANGE THIS
+    const body = document.body; 
     const toggle = document.getElementById('themeToggle');
     const icon = document.getElementById('themeIcon');
 
     // Load saved theme
     const saved = localStorage.getItem('jj_theme') || 'light';
-    body.setAttribute('data-theme', saved); // CHANGE THIS
+    body.setAttribute('data-theme', saved); 
     updateToggle(saved);
 
     toggle.addEventListener('click', () => {
-        const next = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; // CHANGE THIS
-        body.setAttribute('data-theme', next); // CHANGE THIS
+        const next = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; 
+        body.setAttribute('data-theme', next); 
         localStorage.setItem('jj_theme', next);
         updateToggle(next);
     });
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Hover carousels
+    // Hover carousels for project images
     function initHoverCarousels() {
         document.querySelectorAll('.hover-carousel').forEach(carousel => {
             const images = carousel.querySelectorAll('img');
@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Certifications carousel
+    // Certifications carousel with swipe support
     function initCertificationsCarousel() {
         const carouselContainer = document.getElementById('carouselContainer');
         if (!carouselContainer) return;
@@ -214,9 +214,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 CARD_WIDTH = 200 + 16;
                 VISIBLE_CARDS = 3;
             } else {
-                // Update these to match your CSS mobile values
-                CONTAINER_WIDTH = 344;  // Match CSS max-width: 344px
-                CARD_WIDTH = 320 + 24;  // Match CSS flex: 0 0 320px + margin
+                CONTAINER_WIDTH = 344;
+                CARD_WIDTH = 320 + 24;
                 VISIBLE_CARDS = 3;
             }
         }
@@ -225,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const existingClones = carouselContainer.querySelectorAll('.certification-card.clone');
             existingClones.forEach(clone => clone.remove());
             
-            // ALWAYS use 3-card clone pattern
+            // Clone cards for infinite scroll effect
             const beginningCards = [6, 0, 1];
             for (let i = 0; i < beginningCards.length; i++) {
                 const clone = originalCards[beginningCards[i]].cloneNode(true);
@@ -250,7 +249,6 @@ document.addEventListener('DOMContentLoaded', function() {
         function centerCarousel() {
             updateDimensions();
             
-            // ALWAYS use 3-card positioning
             const cardsWidth = CARD_WIDTH * 3;
             const offset = (CONTAINER_WIDTH - cardsWidth) / 2;
             const translateX = -((currentIndex * CARD_WIDTH) - offset);
@@ -266,7 +264,6 @@ document.addEventListener('DOMContentLoaded', function() {
             allCards.forEach((card, index) => {
                 card.classList.remove('middle-card');
                 
-                // ALWAYS use 3-card middle logic
                 const middleIndex = currentIndex + 1;
                 if (index === middleIndex) {
                     card.classList.add('middle-card');
@@ -302,7 +299,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let activeDotIndex;
             
-            // ALWAYS use 3-card dot logic
             const allCards = getAllCards();
             const middleIndex = currentIndex + 1;
             const totalAllCards = allCards.length;
@@ -329,10 +325,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let isJumping = false;
             
-            // ALWAYS use 3-card mode logic
             const cardsWidth = CARD_WIDTH * 3;
             const offset = (CONTAINER_WIDTH - cardsWidth) / 2;
             
+            // Handle infinite scroll loop
             if (currentIndex >= totalAllCards - 3) {
                 isJumping = true;
                 setTimeout(() => {
@@ -478,13 +474,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initCertificationsCarousel();
 })();
 
-// Initialize certifications carousel
+// Initialize certifications carousel on DOM ready
 document.addEventListener('DOMContentLoaded', function() {
     if (typeof initCertificationsCarousel === 'function') {
         initCertificationsCarousel();
     }
 });
 
+// Fallback initialization
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof initCertificationsCarousel === 'function') {
