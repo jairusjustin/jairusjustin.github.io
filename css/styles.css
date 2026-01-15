@@ -734,6 +734,7 @@ p.lead {
   will-change: transform;
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   padding: 10px 0;
 }
 
@@ -758,10 +759,17 @@ p.lead {
   user-select: none;
   backdrop-filter: blur(10px);
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   opacity: 0.7;
   transform: scale(0.9);
   will-change: transform, opacity;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* NEW: Seamless transition state */
+.carousel-container.seamless-transition {
+  transition: none !important;
 }
 
 .certification-card.middle-card {
@@ -780,6 +788,24 @@ p.lead {
 
 .certification-card.middle-card:hover {
   transform: scale(1.05) translateY(-6px) rotateX(5deg);
+}
+
+/* Keep ALL transitions EXCEPT transform and opacity during jump */
+.carousel-jumping .certification-card {
+    /* Disable ONLY scale/transform animations */
+    transition: box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                z-index 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    /* Note: transform and opacity transitions are REMOVED! */
+}
+
+.carousel-jumping .cert-ornament {
+    transition: none !important; /* Disable ornament animation */
+}
+
+/* Carousel swipe KEEPS its transition */
+.carousel-container {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .certification-visual {
