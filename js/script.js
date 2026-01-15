@@ -247,7 +247,6 @@ document.addEventListener('keydown', e => {
     const CAROUSEL_CONFIG = {
         autoSlideInterval: 4000,      // Time between auto-slides (ms)
         transitionDuration: 500,      // Animation duration (ms)
-        cloneSets: 3,                 // Number of clone sets for infinite scroll
         breakpoints: {                // Responsive breakpoints
             mobile: 668,              // ≤ 667px
             tablet: 809,              // 668-808px
@@ -262,8 +261,8 @@ document.addEventListener('keydown', e => {
         }
     };
 
-    /* ================= CERTIFICATIONS CAROUSEL ================= */
-    class InfiniteCertificationsCarousel {
+    /* ================= EDGE-AWARE CERTIFICATIONS CAROUSEL ================= */
+    class EdgeAwareCertificationsCarousel {
         constructor() {
             this.track = document.getElementById('carouselContainer');
             this.prevBtn = document.getElementById('prevBtn');
@@ -276,12 +275,19 @@ document.addEventListener('keydown', e => {
             this.certifications = CERTIFICATIONS_DATA;
             
             // State variables
-            this.currentPosition = 0;
+            this.currentIndex = 1; // Start with card 2 in the middle (index 1)
             this.isAnimating = false;
             this.autoSlideInterval = null;
             this.cardWidth = CAROUSEL_CONFIG.cardWidths.largeDesktop;
             this.visibleCards = 3;
             this.padding = 0;
+            this.slideDirection = 'next'; // Start sliding to the right
+            
+            // Drag/swipe variables
+            this.isDragging = false;
+            this.startX = 0;
+            this.currentTranslate = 0;
+            this.prevTranslate = 0;
             
             this.init();
         }
@@ -291,49 +297,28 @@ document.addEventListener('keydown', e => {
             this.calculateDimensions();
             this.setupEventListeners();
             this.generateDots();
-            this.centerCarousel();
+            this.centerCarousel(); // Center the second card initially
+            this.updateNavigationButtons();
             this.startAutoSlide();
         }
         
         generateCards() {
             this.track.innerHTML = '';
             
-            const { cloneSets } = CAROUSEL_CONFIG;
-            
-            // Clone sets BEFORE original
-            for (let set = cloneSets; set >= 1; set--) {
-                this.certifications.forEach((cert, idx) => {
-                    this.track.appendChild(this.createCard(cert, idx, `clone-before-${set}`));
-                });
-            }
-            
-            // Original set
+            // Only generate the original cards (no clones)
             this.certifications.forEach((cert, idx) => {
-                this.track.appendChild(this.createCard(cert, idx, 'original'));
+                this.track.appendChild(this.createCard(cert, idx));
             });
             
-            // Clone sets AFTER original
-            for (let set = 1; set <= cloneSets; set++) {
-                this.certifications.forEach((cert, idx) => {
-                    this.track.appendChild(this.createCard(cert, idx, `clone-after-${set}`));
-                });
-            }
-            
             this.allCards = Array.from(this.track.children);
-            this.uniqueCardsCount = this.certifications.length;
-            this.cloneCount = this.uniqueCardsCount * cloneSets;
-            this.totalCards = this.allCards.length;
-            
-            // Start in the middle (original section)
-            this.currentPosition = this.cloneCount;
+            this.totalCards = this.certifications.length;
         }
         
-        createCard(cert, originalIndex, type) {
+        createCard(cert, originalIndex) {
             const card = document.createElement('article');
             card.className = 'certification-card';
             card.dataset.id = cert.id;
-            card.dataset.originalIndex = originalIndex;
-            card.dataset.type = type;
+            card.dataset.index = originalIndex;
             
             // Handle Google logo (special case)
             let logoHTML = '';
@@ -398,12 +383,28 @@ document.addEventListener('keydown', e => {
                 this.padding = (containerWidth - (this.cardWidth * this.visibleCards)) / 2;
             }
             
-            // Add padding to track for centering
+            // Add symmetric padding to track for centering
             this.track.style.padding = `10px ${this.padding}px`;
         }
         
         centerCarousel() {
-            const translateX = -((this.currentPosition * this.cardWidth) - this.padding);
+            // Calculate position to show current card in the middle
+            const centerOffset = Math.floor(this.visibleCards / 2);
+            let targetPosition = 0;
+            
+            // For card 2 (index 1) in middle: show cards 1, 2, 3
+            if (this.currentIndex < centerOffset) {
+                // For early cards (card 1, 2) when we're near the start
+                targetPosition = 0;
+            } else if (this.currentIndex > this.totalCards - 1 - centerOffset) {
+                // For last cards when we're near the end
+                targetPosition = this.totalCards - this.visibleCards;
+            } else {
+                // For middle cards
+                targetPosition = this.currentIndex - centerOffset;
+            }
+            
+            const translateX = -(targetPosition * this.cardWidth) + this.padding;
             this.track.style.transition = 'none';
             this.track.style.transform = `translateX(${translateX}px)`;
             
@@ -414,40 +415,63 @@ document.addEventListener('keydown', e => {
         }
         
         slide(direction) {
-            if (this.isAnimating) return;
-            this.isAnimating = true;
+            if (this.isAnimating || this.isDragging) return;
             
-            this.stopAutoSlide();
+            const newIndex = direction === 'next' 
+                ? this.currentIndex + 1 
+                : this.currentIndex - 1;
             
-            const step = direction === 'next' ? 1 : -1;
-            const targetPosition = this.currentPosition + step;
-            
-            // Pre-check if we need to jump before animating
-            const isCrossingBoundary = direction === 'next' ? 
-                targetPosition >= this.cloneCount + this.uniqueCardsCount - Math.floor(this.visibleCards/2) :
-                targetPosition < this.cloneCount - Math.floor(this.visibleCards/2);
-            
-            if (isCrossingBoundary) {
-                // INSTANT jump to opposite side (no animation)
-                const jumpAmount = direction === 'next' ? -this.uniqueCardsCount : this.uniqueCardsCount;
-                this.currentPosition += jumpAmount;
-                
-                this.track.style.transition = 'none';
-                const translateX = -((this.currentPosition * this.cardWidth) - this.padding);
-                this.track.style.transform = `translateX(${translateX}px)`;
-                this.track.offsetHeight;
+            // Check bounds - REVERSE direction at edges for auto-slide
+            let actualDirection = direction;
+            if (newIndex < 0) {
+                // At first card and trying to go prev
+                if (this.autoSlideInterval) {
+                    // Auto-slide: reverse direction
+                    this.slideDirection = 'next';
+                    return this.slide('next');
+                } else {
+                    // Manual click: do nothing
+                    return;
+                }
+            } else if (newIndex >= this.totalCards) {
+                // At last card and trying to go next
+                if (this.autoSlideInterval) {
+                    // Auto-slide: reverse direction
+                    this.slideDirection = 'prev';
+                    return this.slide('prev');
+                } else {
+                    // Manual click: do nothing
+                    return;
+                }
             }
             
-            // Now do the smooth slide animation
-            this.track.style.transition = `transform ${CAROUSEL_CONFIG.transitionDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
-            this.currentPosition += step;
+            this.isAnimating = true;
+            this.stopAutoSlide();
             
-            const translateX = -((this.currentPosition * this.cardWidth) - this.padding);
+            this.currentIndex = newIndex;
+            
+            // Animate to new position
+            this.track.style.transition = `transform ${CAROUSEL_CONFIG.transitionDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+            
+            // Calculate new position
+            const centerOffset = Math.floor(this.visibleCards / 2);
+            let targetPosition = 0;
+            
+            if (this.currentIndex < centerOffset) {
+                targetPosition = 0;
+            } else if (this.currentIndex > this.totalCards - 1 - centerOffset) {
+                targetPosition = this.totalCards - this.visibleCards;
+            } else {
+                targetPosition = this.currentIndex - centerOffset;
+            }
+            
+            const translateX = -(targetPosition * this.cardWidth) + this.padding;
             this.track.style.transform = `translateX(${translateX}px)`;
             
             this.updateActiveStates();
+            this.updateNavigationButtons();
             
-            // Reset animation state after transition
+            // Reset animation state
             setTimeout(() => {
                 this.isAnimating = false;
                 this.startAutoSlide();
@@ -455,23 +479,40 @@ document.addEventListener('keydown', e => {
         }
         
         updateActiveStates() {
-            // Calculate which card should be centered
-            const centerOffset = Math.floor(this.visibleCards / 2);
-            const centerIndex = this.currentPosition + centerOffset;
-            
-            // Update middle-card class on all cards
+            // Highlight the centered card
             this.allCards.forEach((card, index) => {
-                const isCenter = index === centerIndex;
+                const isCenter = index === this.currentIndex;
                 card.classList.toggle('middle-card', isCenter);
+                
+                // Add faded class to adjacent cards (if they exist)
+                if (this.visibleCards > 1) {
+                    const isAdjacent = Math.abs(index - this.currentIndex) === 1;
+                    card.classList.toggle('faded', isAdjacent);
+                }
             });
             
             // Update dots
-            const originalIndex = ((centerIndex - this.cloneCount) % this.uniqueCardsCount + this.uniqueCardsCount) % this.uniqueCardsCount;
             const dots = this.dotsWrap.children;
-            
             Array.from(dots).forEach((dot, index) => {
-                dot.classList.toggle('active', index === originalIndex);
+                dot.classList.toggle('active', index === this.currentIndex);
             });
+        }
+        
+        updateNavigationButtons() {
+            // Manual buttons still disabled at edges
+            if (this.prevBtn) {
+                const isAtStart = this.currentIndex === 0;
+                this.prevBtn.style.opacity = isAtStart ? '0.3' : '1';
+                this.prevBtn.style.pointerEvents = isAtStart ? 'none' : 'all';
+                this.prevBtn.setAttribute('aria-disabled', isAtStart);
+            }
+            
+            if (this.nextBtn) {
+                const isAtEnd = this.currentIndex === this.totalCards - 1;
+                this.nextBtn.style.opacity = isAtEnd ? '0.3' : '1';
+                this.nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'all';
+                this.nextBtn.setAttribute('aria-disabled', isAtEnd);
+            }
         }
         
         generateDots() {
@@ -489,55 +530,140 @@ document.addEventListener('keydown', e => {
         }
         
         goToCertification(targetIndex) {
-            if (this.isAnimating) return;
+            if (this.isAnimating || this.isDragging || targetIndex === this.currentIndex) return;
             this.isAnimating = true;
             this.stopAutoSlide();
             
-            // Find the target card in the original section
-            const targetOriginalIndex = this.cloneCount + targetIndex;
-            const currentCenter = this.currentPosition + Math.floor(this.visibleCards / 2);
+            this.currentIndex = targetIndex;
             
-            // Calculate the shortest distance to target
-            let distance = targetOriginalIndex - currentCenter;
-            
-            // Check if going forward or backward is shorter
-            const forwardDistance = distance >= 0 ? distance : distance + this.uniqueCardsCount;
-            const backwardDistance = distance <= 0 ? Math.abs(distance) : Math.abs(distance - this.uniqueCardsCount);
-            
-            // Choose shortest path
-            if (forwardDistance <= backwardDistance) {
-                this.currentPosition += forwardDistance;
-            } else {
-                this.currentPosition -= backwardDistance;
+            // Update slide direction based on where we're going
+            if (targetIndex > this.currentIndex) {
+                this.slideDirection = 'next';
+            } else if (targetIndex < this.currentIndex) {
+                this.slideDirection = 'prev';
             }
             
             // Animate to target
             this.track.style.transition = `transform ${CAROUSEL_CONFIG.transitionDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
-            const translateX = -((this.currentPosition * this.cardWidth) - this.padding);
+            
+            // Calculate position
+            const centerOffset = Math.floor(this.visibleCards / 2);
+            let targetPosition = 0;
+            
+            if (this.currentIndex < centerOffset) {
+                targetPosition = 0;
+            } else if (this.currentIndex > this.totalCards - 1 - centerOffset) {
+                targetPosition = this.totalCards - this.visibleCards;
+            } else {
+                targetPosition = this.currentIndex - centerOffset;
+            }
+            
+            const translateX = -(targetPosition * this.cardWidth) + this.padding;
             this.track.style.transform = `translateX(${translateX}px)`;
             
             this.updateActiveStates();
+            this.updateNavigationButtons();
             
-            // Handle boundary after animation
             setTimeout(() => {
-                // Check if we need to jump to maintain infinite feel
-                if (this.currentPosition >= this.cloneCount + this.uniqueCardsCount - 2) {
-                    this.currentPosition -= this.uniqueCardsCount;
-                    this.track.style.transition = 'none';
-                    const newTranslateX = -((this.currentPosition * this.cardWidth) - this.padding);
-                    this.track.style.transform = `translateX(${newTranslateX}px)`;
-                    this.track.offsetHeight;
-                } else if (this.currentPosition <= this.cloneCount + 2) {
-                    this.currentPosition += this.uniqueCardsCount;
-                    this.track.style.transition = 'none';
-                    const newTranslateX = -((this.currentPosition * this.cardWidth) - this.padding);
-                    this.track.style.transform = `translateX(${newTranslateX}px)`;
-                    this.track.offsetHeight;
-                }
-                
                 this.isAnimating = false;
                 this.startAutoSlide();
             }, CAROUSEL_CONFIG.transitionDuration);
+        }
+        
+        /* ================= DRAG/SWIPE METHODS ================= */
+        dragStart(e) {
+            if (this.isAnimating) return;
+            
+            this.stopAutoSlide();
+            this.isDragging = true;
+            
+            // Get initial position
+            if (e.type === 'touchstart') {
+                this.startX = e.touches[0].clientX;
+            } else {
+                this.startX = e.clientX;
+                e.preventDefault(); // Prevent text selection
+            }
+            
+            // Get current translate value
+            const style = window.getComputedStyle(this.track);
+            const matrix = new DOMMatrix(style.transform);
+            this.currentTranslate = matrix.m41; // Get translateX value
+            this.prevTranslate = this.currentTranslate;
+            
+            // Add transition none during drag
+            this.track.style.transition = 'none';
+            this.track.style.cursor = 'grabbing';
+        }
+        
+        drag(e) {
+            if (!this.isDragging) return;
+            
+            let currentX;
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX;
+            } else {
+                currentX = e.clientX;
+            }
+            
+            const diff = currentX - this.startX;
+            const newTranslate = this.prevTranslate + diff;
+            
+            // Apply the drag translation
+            this.track.style.transform = `translateX(${newTranslate}px)`;
+            this.currentTranslate = newTranslate;
+        }
+        
+        dragEnd(e) {
+            if (!this.isDragging) return;
+            
+            this.isDragging = false;
+            this.track.style.cursor = 'grab';
+            this.track.style.transition = `transform ${CAROUSEL_CONFIG.transitionDuration}ms cubic-bezier(0.25, 0.46, 0.45, 0.94)`;
+            
+            // Calculate how far we dragged
+            let endX;
+            if (e.type === 'touchend') {
+                endX = e.changedTouches[0].clientX;
+            } else {
+                endX = e.clientX;
+            }
+            
+            const diff = endX - this.startX;
+            const threshold = this.cardWidth * 0.3; // 30% of card width
+            
+            // Determine if drag was significant enough to change slide
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    // Dragged right = go to previous
+                    this.slide('prev');
+                } else {
+                    // Dragged left = go to next
+                    this.slide('next');
+                }
+            } else {
+                // Not enough drag, snap back to current position
+                this.snapBack();
+            }
+            
+            this.startAutoSlide();
+        }
+        
+        snapBack() {
+            // Calculate proper position for current index
+            const centerOffset = Math.floor(this.visibleCards / 2);
+            let targetPosition = 0;
+            
+            if (this.currentIndex < centerOffset) {
+                targetPosition = 0;
+            } else if (this.currentIndex > this.totalCards - 1 - centerOffset) {
+                targetPosition = this.totalCards - this.visibleCards;
+            } else {
+                targetPosition = this.currentIndex - centerOffset;
+            }
+            
+            const translateX = -(targetPosition * this.cardWidth) + this.padding;
+            this.track.style.transform = `translateX(${translateX}px)`;
         }
         
         setupEventListeners() {
@@ -556,43 +682,39 @@ document.addEventListener('keydown', e => {
                 resizeTimeout = setTimeout(() => {
                     this.calculateDimensions();
                     this.centerCarousel();
+                    this.updateNavigationButtons();
                 }, 100);
             });
             
-            // Touch/swipe support
-            let startX = 0;
-            let isSwiping = false;
-            const swipeThreshold = 50;
+            // ================= DRAG/SWIPE SUPPORT =================
+            // Prevent image drag behavior
+            this.track.querySelectorAll('img').forEach(img => {
+                img.addEventListener('dragstart', (e) => e.preventDefault());
+            });
             
-            this.track.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-                isSwiping = true;
-                this.stopAutoSlide();
-            }, { passive: true });
+            // Mouse events for desktop drag
+            this.track.addEventListener('mousedown', this.dragStart.bind(this));
+            this.track.addEventListener('mousemove', this.drag.bind(this));
+            this.track.addEventListener('mouseup', this.dragEnd.bind(this));
+            this.track.addEventListener('mouseleave', this.dragEnd.bind(this));
             
-            this.track.addEventListener('touchend', (e) => {
-                if (!isSwiping) return;
-                isSwiping = false;
-                
-                const endX = e.changedTouches[0].clientX;
-                const diff = startX - endX;
-                
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        this.slide('next');
-                    } else {
-                        this.slide('prev');
-                    }
-                } else {
-                    this.startAutoSlide();
-                }
-            }, { passive: true });
+            // Touch events for mobile swipe
+            this.track.addEventListener('touchstart', this.dragStart.bind(this), { passive: false });
+            this.track.addEventListener('touchmove', this.drag.bind(this), { passive: false });
+            this.track.addEventListener('touchend', this.dragEnd.bind(this));
+            
+            // Prevent context menu on drag
+            this.track.addEventListener('contextmenu', (e) => e.preventDefault());
+            
+            // Set initial cursor
+            this.track.style.cursor = 'grab';
         }
         
         startAutoSlide() {
             this.stopAutoSlide();
             this.autoSlideInterval = setInterval(() => {
-                this.slide('next');
+                // Auto-slide will reverse direction at edges
+                this.slide(this.slideDirection);
             }, CAROUSEL_CONFIG.autoSlideInterval);
         }
         
@@ -607,7 +729,7 @@ document.addEventListener('keydown', e => {
     // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', () => {
         // Initialize certifications carousel
-        new InfiniteCertificationsCarousel();
+        new EdgeAwareCertificationsCarousel();
         
         // Initialize other features
         initRevealAnimations();
