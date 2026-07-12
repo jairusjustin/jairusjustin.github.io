@@ -210,7 +210,7 @@ document.addEventListener('keydown', e => {
             issuer: "Cisco",
             date: "Nov 2023",
             desc: "Foundational data analytics concepts, visualization techniques, and analytical thinking.",
-            logo: "https://cdn.brandfetch.io/idqG-yHws9/w/400/h/400/theme/dark/icon.jpeg",
+            logo: "https://cdn.brandfetch.io/ida_xaMYlM/w/128/h/128/fallback/lettermark/icon.webp?c=1ax1783780820964bfumLaCV7mxySZIKb7",
             link: "https://www.credly.com/badges/7a46ecf0-e3d9-466a-9765-6772976c49cd/linked_in_profile"
         },
         {
@@ -219,7 +219,7 @@ document.addEventListener('keydown', e => {
             issuer: "Cisco",
             date: "Dec 2023",
             desc: "Introduction to data science principles, statistical analysis, and machine learning basics.",
-            logo: "https://cdn.brandfetch.io/idqG-yHws9/w/400/h/400/theme/dark/icon.jpeg",
+            logo: "https://cdn.brandfetch.io/ida_xaMYlM/w/128/h/128/fallback/lettermark/icon.webp?c=1ax1783780820964bfumLaCV7mxySZIKb7",
             link: "https://www.credly.com/badges/86413651-8344-469b-a2cc-bfc79128b4fd"
         },
         {
