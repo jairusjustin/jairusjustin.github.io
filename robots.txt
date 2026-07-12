@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jairuscubilla.vercel.app/sitemap.xml
